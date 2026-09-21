@@ -26,11 +26,13 @@
     @apply border-sand/40;
   }
 
-  html {
-    scroll-behavior: smooth;
-    overflow-anchor: none; /* prevents browser scroll-anchoring from
-                               fighting ScrollToTop on route changes */
-  }
+ html {
+  scroll-behavior: smooth;
+  overflow-anchor: none;
+  overscroll-behavior-y: none; /* stops the mobile bounce/pull effect that
+                                    was revealing white space above the
+                                    fixed header on scroll */
+}
 
   @media (prefers-reduced-motion: reduce) {
     html {

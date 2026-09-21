@@ -46,6 +46,15 @@ export default function Navbar() {
           aria-label="Shahain Outdoor Living — Home"
         >
           <img src={logo} alt="Shahain Outdoor Living" className="h-12 w-auto lg:h-14" />
+
+          {/* Wordmark — mobile only */}
+          <span
+            className={`font-heading text-[19px] font-semibold uppercase tracking-[0.06em] transition-colors duration-300 lg:hidden ${
+              solid ? "text-navy" : "text-ivory"
+            }`}
+          >
+            Shahain
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -136,8 +145,10 @@ export default function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={`flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden ${
-            solid ? "text-navy" : "text-ivory"
+          className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
+            solid
+              ? "border-navy/15 text-navy"
+              : "border-ivory/30 text-ivory"
           }`}
         >
           {open ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
