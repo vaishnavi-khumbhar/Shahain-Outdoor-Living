@@ -6,6 +6,7 @@ import Reveal from "../components/Reveal";
 import Button from "../components/Button";
 import { productCategories } from "../data/products";
 import { siteConfig, ctaLabels } from "../data/siteConfig";
+import { media } from "../data/media";
 
 const inputClasses =
   "w-full border border-sand/70 bg-transparent px-4 py-3.5 font-body text-sm text-navy placeholder:text-gray/60 outline-none transition-colors duration-200 focus:border-champagne";
@@ -28,8 +29,21 @@ export default function Contact() {
         path="/contact"
       />
 
-      <section className="bg-navy pb-20 pt-40 lg:pb-28 lg:pt-52">
-        <div className="container-shahain">
+      {/* =====================================================
+          HERO — real photography behind the headline
+      ===================================================== */}
+      <section className="relative overflow-hidden bg-navy pb-20 pt-40 lg:pb-28 lg:pt-52">
+        <div className="absolute inset-0">
+          <img
+            src={media.applicationsImage}
+            alt=""
+            className="h-full w-full object-cover opacity-45"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+        </div>
+
+        <div className="container-shahain relative">
           <Reveal direction="up">
             <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">Contact</span>
           </Reveal>
@@ -123,8 +137,8 @@ export default function Contact() {
                 <select id="interest" value={form.interest} onChange={handleChange("interest")} className={`${inputClasses} appearance-none`}>
                   <option value="">Select a product category</option>
                   {productCategories.map((category) => (
-                    <option key={category.slug} value={category.name}>
-                      {category.name}
+                    <option key={category.slug} value={category.title}>
+                      {category.title}
                     </option>
                   ))}
                 </select>

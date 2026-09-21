@@ -1,5 +1,9 @@
 import { projectImages } from "./media";
 
+// =========================================================
+// PROJECT SHOWCASE
+// =========================================================
+
 export const projectShowcase = [
   {
     slug: "hospitality-outdoor-furniture",
@@ -7,6 +11,7 @@ export const projectShowcase = [
     sector: "Hospitality",
     title: "Outdoor Furniture for Hotels & Restaurants",
     image: projectImages.hospitalityOutdoorFurniture,
+
     clients: [
       "JW Marriott",
       "Hilton",
@@ -17,12 +22,17 @@ export const projectShowcase = [
     ],
   },
 
+  // =======================================================
+  // HOTEL UMBRELLAS
+  // =======================================================
+
   {
     slug: "hospitality-umbrellas",
     category: "umbrellas",
     sector: "Hospitality",
     title: "Poolside & Terrace Umbrellas",
     image: projectImages.hospitalityUmbrellas,
+
     clients: [
       "Marriott Suites",
       "Breach Candy Club, Mumbai",
@@ -30,12 +40,17 @@ export const projectShowcase = [
     ],
   },
 
+  // =======================================================
+  // COMMERCIAL AWNINGS
+  // =======================================================
+
   {
     slug: "commercial-awnings",
     category: "awnings",
     sector: "Commercial",
     title: "Awnings for Corporate Campuses",
     image: projectImages.commercialAwnings,
+
     clients: [
       "Forbes Marshal",
       "Krone Marshall",
@@ -45,12 +60,17 @@ export const projectShowcase = [
     ],
   },
 
+  // =======================================================
+  // TENSILE STRUCTURES
+  // =======================================================
+
   {
     slug: "residential-tensile",
     category: "tensile-structures",
     sector: "Residential Developments",
     title: "Tensile Structures for Residential Projects",
     image: projectImages.residentialTensile,
+
     clients: [
       "Krisala Developers",
       "Karia Developers",
@@ -59,12 +79,17 @@ export const projectShowcase = [
     ],
   },
 
+  // =======================================================
+  // SHADE SAILS
+  // =======================================================
+
   {
     slug: "hospitality-shade-sails",
     category: "shade-sails",
     sector: "Hospitality",
     title: "Shade Sails for Clubs & Bars",
     image: projectImages.hospitalityShadeSails,
+
     clients: [
       "Flamboyante, Mumbai",
       "Boardwalk, Mumbai",
@@ -73,12 +98,17 @@ export const projectShowcase = [
     ],
   },
 
+  // =======================================================
+  // RESIDENTIAL FURNITURE
+  // =======================================================
+
   {
     slug: "residential-furniture",
     category: "outdoor-furniture",
     sector: "Residential Developments",
     title: "Furniture for Residential Developments",
     image: projectImages.residentialFurniture,
+
     clients: [
       "Parmer Builders",
       "Hermes Builders",
@@ -88,7 +118,12 @@ export const projectShowcase = [
   },
 ];
 
-export const getProjectsByCategory = (categorySlug) =>
-  projectShowcase.filter(
+// =========================================================
+// GET PROJECTS BY CATEGORY
+// =========================================================
+
+export const getProjectsByCategory = (categorySlug) => {
+  return projectShowcase.filter(
     (project) => project.category === categorySlug
   );
+};

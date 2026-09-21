@@ -21,7 +21,9 @@ export default function Reveal({
   duration = 0.7,
   className = "",
   once = true,
-  amount = 0.25,
+  amount = "some", // was 0.25 — numeric thresholds can fail to trigger in
+                    // narrow/emulated viewports; "some" fires as soon as
+                    // any part of the element is visible.
 }) {
   const MotionTag = motion[as] ?? motion.div;
 
@@ -45,7 +47,7 @@ export function Stagger({ children, className = "", stagger = 0.12, delayChildre
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: "some" }} // was 0.2
       variants={{
         visible: { transition: { staggerChildren: stagger, delayChildren } },
         hidden: {},

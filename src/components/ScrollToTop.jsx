@@ -13,7 +13,14 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    // Deferred to the next frame so it runs after the new page has
+    // painted, rather than racing the outgoing page's layout/unmount —
+    // avoids the browser's scroll-anchoring snapping it back down.
+    const frame = requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   return null;

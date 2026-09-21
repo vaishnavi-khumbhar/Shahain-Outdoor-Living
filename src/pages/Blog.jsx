@@ -6,6 +6,7 @@ import ImageFrame from "../components/ImageFrame";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal";
 import ContactCta from "../components/ContactCta";
 import { blogPosts } from "../data/blog";
+import { media } from "../data/media";
 
 export default function Blog() {
   return (
@@ -17,12 +18,18 @@ export default function Blog() {
       />
 
       {/* =====================================================
-          HERO
+          HERO — real photography behind the headline
       ===================================================== */}
       <section className="relative overflow-hidden bg-navy pb-20 pt-36 sm:pt-40 lg:pb-28 lg:pt-48">
-        {/* Decorative glow */}
-        <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-champagne/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 right-[-80px] h-96 w-96 rounded-full bg-champagne/5 blur-3xl" />
+        <div className="absolute inset-0">
+          <img
+            src={media.heroSlide3}
+            alt=""
+            className="h-full w-full object-cover opacity-45"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+        </div>
 
         <div className="container-shahain relative z-10">
           <Reveal direction="up">

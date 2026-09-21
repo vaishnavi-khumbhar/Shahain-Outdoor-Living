@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Layers, ShieldCheck, Sparkles } from "lucide-react";
+import { Layers, ShieldCheck, Palette } from "lucide-react";
 import Seo from "../components/Seo";
 import SectionHeading from "../components/SectionHeading";
 import ImageFrame from "../components/ImageFrame";
@@ -21,7 +21,7 @@ const principles = [
     description: "Wood, wicker, metal, polyester, canvas and acrylic — matched to the setting.",
   },
   {
-    icon: Sparkles,
+    icon: Palette,
     title: "Classic to Contemporary",
     description: "Styles that span classic silhouettes to modern, contemporary design.",
   },
@@ -29,7 +29,7 @@ const principles = [
 
 const gallery = [
   { src: media.furnitureCafe, label: "Outdoor Furniture" },
-  { src: media.awningRetractable, label: "Awnings" },
+  { src: media.awningsGallery, label: "Awnings" },
   { src: media.umbrellaRoma, label: "Outdoor Umbrellas" },
 ];
 
@@ -46,7 +46,7 @@ export default function About() {
       <section className="relative overflow-hidden bg-navy pb-20 pt-40 lg:pb-28 lg:pt-52">
         <div className="absolute inset-0">
           <img
-            src={media.heroBanner}
+            src={media.heroSlide1}
             alt=""
             className="h-full w-full object-cover opacity-45"
             loading="eager"
@@ -145,12 +145,13 @@ export default function About() {
           <Reveal direction="up" delay={0.1}>
             <div className="flex flex-wrap justify-center gap-3">
               {productCategories.map((category) => (
-                <span
+                <Link
                   key={category.slug}
+                  to={`/products/${category.slug}`}
                   className="border border-sand/70 px-5 py-2.5 font-body text-[12.5px] uppercase tracking-[0.14em] text-navy transition-colors duration-300 hover:border-champagne hover:bg-navy hover:text-ivory"
                 >
-                  {category.name}
-                </span>
+                  {category.title}
+                </Link>
               ))}
             </div>
           </Reveal>

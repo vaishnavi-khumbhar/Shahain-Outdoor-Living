@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import Seo from "../components/Seo";
-import SectionHeading from "../components/SectionHeading";
 import ImageFrame from "../components/ImageFrame";
 import Reveal, {
   Stagger,
@@ -10,7 +9,7 @@ import Reveal, {
 import ContactCta from "../components/ContactCta";
 
 import { projectShowcase } from "../data/projects";
-import { getProductBySlug } from "../data/products";
+import { media } from "../data/media";
 
 export default function Projects() {
   return (
@@ -21,31 +20,70 @@ export default function Projects() {
 
       <Seo
         title="Projects"
-        description="A look at where Shahain Outdoor Living's furniture, awnings, umbrellas, shade sails and tensile structures have been delivered — across hospitality, commercial and residential projects."
+        description="A look at where Shahain Outdoor Living's furniture, awnings, umbrellas, shade sails and tensile structures have been delivered across hospitality, commercial and residential projects."
         path="/projects"
       />
 
       {/* =====================================================
-          HERO
+          HERO — real photography behind the headline
       ===================================================== */}
 
-      <section className="bg-navy pb-20 pt-40 lg:pb-28 lg:pt-52">
-        <div className="container-shahain">
+      <section className="relative overflow-hidden bg-navy pb-20 pt-36 sm:pt-40 lg:pb-28 lg:pt-48">
+        <div className="absolute inset-0">
+          <img
+            src={media.heroSlide2}
+            alt=""
+            className="h-full w-full object-cover opacity-45"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+        </div>
+
+        <div className="container-shahain relative">
 
           <Reveal direction="up">
-            <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">
+            <span
+              className="
+                font-body
+                text-xs
+                font-medium
+                uppercase
+                tracking-[0.28em]
+                text-champagne
+              "
+            >
               Projects
             </span>
           </Reveal>
 
           <Reveal direction="up" delay={0.1}>
-            <h1 className="mt-5 max-w-2xl text-balance font-heading text-[clamp(2.2rem,5.5vw,4rem)] font-medium leading-[1.08] text-ivory">
+            <h1
+              className="
+                mt-5
+                max-w-2xl
+                font-heading
+                text-[clamp(2.2rem,5.5vw,4rem)]
+                font-medium
+                leading-[1.08]
+                text-ivory
+              "
+            >
               Where our work lives.
             </h1>
           </Reveal>
 
           <Reveal direction="up" delay={0.2}>
-            <p className="mt-6 max-w-lg font-body text-base leading-relaxed text-ivory/65">
+            <p
+              className="
+                mt-6
+                max-w-lg
+                font-body
+                text-sm
+                leading-relaxed
+                text-ivory/65
+                sm:text-base
+              "
+            >
               Outdoor furniture, awnings, umbrellas, shade sails and tensile
               structures delivered across hospitality, commercial and
               residential projects.
@@ -59,7 +97,7 @@ export default function Projects() {
           PROJECT GRID
       ===================================================== */}
 
-      <section className="py-20 lg:py-20">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="container-shahain">
 
           <Stagger
@@ -67,117 +105,124 @@ export default function Projects() {
               grid
               grid-cols-1
               gap-x-8
-              gap-y-16
+              gap-y-14
               sm:grid-cols-2
+              sm:gap-y-16
               lg:grid-cols-3
             "
           >
 
-            {projectShowcase.map((project, index) => {
-              const product = getProductBySlug(project.category);
+            {projectShowcase.map((project, index) => (
+              <StaggerItem
+                key={project.slug}
+                className={
+                  index === 1
+                    ? "lg:translate-y-10"
+                    : ""
+                }
+              >
 
-              return (
-                <StaggerItem
-                  key={project.slug}
-                  className={
-                    index === 1
-                      ? "lg:translate-y-10"
-                      : ""
-                  }
+                <Link
+                  to={`/products/${project.category}`}
+                  className="
+                    group
+                    block
+                    w-full
+                  "
                 >
 
-                  <Link
-                    to={`/products/${project.category}`}
-                    className="group block"
-                  >
+                  {/* =================================================
+                      PROJECT IMAGE
+                  ================================================= */}
 
-                    {/* =================================================
-                        PROJECT IMAGE
-                    ================================================= */}
+                  <ImageFrame
+                    src={project.image}
+                    alt={project.title}
+                    ratio="aspect-[4/5]"
+                    label={project.title}
+                    className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
 
-                    <ImageFrame
-                      src={project.image}
-                      alt={project.title}
-                      ratio="aspect-[4/5]"
-                      label={
-                        product?.heroLabel ??
-                        project.title
-                      }
+                  {/* =================================================
+                      PROJECT INFO
+                  ================================================= */}
+
+                  <div className="mt-5 border-t border-sand/60 pt-5">
+
+                    <span
                       className="
-                        overflow-hidden
-                        transition-transform
-                        duration-700
-                        group-hover:scale-[1.02]
+                        block
+                        font-body
+                        text-[10px]
+                        uppercase
+                        tracking-[0.2em]
+                        text-champagne
+                        sm:text-[11px]
                       "
-                    />
+                    >
+                      {project.sector}
+                    </span>
+
+                    <h3
+                      className="
+                        mt-2
+                        font-heading
+                        text-lg
+                        leading-snug
+                        text-navy
+                        transition-colors
+                        duration-300
+                        group-hover:text-champagne
+                        sm:text-xl
+                      "
+                    >
+                      {project.title}
+                    </h3>
 
                     {/* =================================================
-                        PROJECT INFO
+                        CLIENTS
                     ================================================= */}
 
-                    <div className="mt-5 border-t border-sand/60 pt-5">
+                    <div
+                      className="
+                        mt-4
+                        flex
+                        flex-wrap
+                        gap-2
+                      "
+                    >
 
-                      <span
-                        className="
-                          font-body
-                          text-[11px]
-                          uppercase
-                          tracking-[0.2em]
-                          text-champagne
-                        "
-                      >
-                        {project.sector}
-                      </span>
-
-                      <h3
-                        className="
-                          mt-2
-                          font-heading
-                          text-xl
-                          leading-snug
-                          text-navy
-                          transition-colors
-                          duration-300
-                          group-hover:text-champagne
-                        "
-                      >
-                        {project.title}
-                      </h3>
-
-                      {/* =================================================
-                          CLIENTS
-                      ================================================= */}
-
-                      <div className="mt-4 flex flex-wrap gap-2">
-
-                        {project.clients.map((client) => (
-                          <span
-                            key={client}
-                            className="
-                              border
-                              border-sand/60
-                              px-3
-                              py-1.5
-                              font-body
-                              text-[10px]
-                              uppercase
-                              tracking-[0.08em]
-                              text-gray
-                            "
-                          >
-                            {client}
-                          </span>
-                        ))}
-
-                      </div>
+                      {project.clients.map((client) => (
+                        <span
+                          key={client}
+                          className="
+                            border
+                            border-sand/60
+                            px-2.5
+                            py-1.5
+                            font-body
+                            text-[9px]
+                            uppercase
+                            leading-tight
+                            tracking-[0.06em]
+                            text-gray
+                            sm:px-3
+                            sm:text-[10px]
+                            sm:tracking-[0.08em]
+                          "
+                        >
+                          {client}
+                        </span>
+                      ))}
 
                     </div>
 
-                  </Link>
+                  </div>
 
-                </StaggerItem>
-              );
-            })}
+                </Link>
+
+              </StaggerItem>
+            ))}
 
           </Stagger>
 
@@ -187,18 +232,24 @@ export default function Projects() {
 
           <Reveal
             direction="up"
-            className="mt-16 flex justify-center"
+            className="
+              mt-14
+              flex
+              justify-center
+              sm:mt-16
+            "
           >
             <Link
               to="/clients"
               className="
                 font-body
-                text-[12.5px]
+                text-[11px]
                 font-medium
                 uppercase
                 tracking-[0.14em]
                 text-champagne
                 link-underline
+                sm:text-[12.5px]
               "
             >
               See the Full Client List →

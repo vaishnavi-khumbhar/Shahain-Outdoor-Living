@@ -31,7 +31,7 @@ import awningsImage from "../assets/images/awnings.jpg";
 import outdoorFurnitureImage from "../assets/images/outdoor-furniture.jpg";
 import outdoorUmbrellasImage from "../assets/images/outdoor-umbrellas.jpg";
 import shadeSailsImage from "../assets/images/shade-sails.jpg";
-import tensileStructuresImage from "../assets/images/tensile-structures.jpg";
+import tensileStructuresImage from "../assets/images/tensile-structures.png";
 
 // =========================================================
 // APPLICATIONS MAIN IMAGE
@@ -54,6 +54,20 @@ import carParks from "../assets/images/applications/car-parks.jpg";
 import walkwaysPavements from "../assets/images/applications/walkways-pavements.jpg";
 
 // =========================================================
+// PROJECT IMAGES
+// IMPORTANT:
+// These filenames MUST exactly match the files
+// inside: src/assets/images/projects/
+// =========================================================
+
+import projectOutdoorFurniture from "../assets/images/projects/outdoor-furniture.jpg";
+import projectHotelUmbrellas from "../assets/images/projects/hotel-umbrellas.webp";
+import projectCommercialAwnings from "../assets/images/projects/commercial-awnings.jpg";
+import projectTensileStructures from "../assets/images/projects/tensile-structures.jpeg";
+import projectShadeSails from "../assets/images/projects/shade-sails.jpg";
+import projectResidentialFurniture from "../assets/images/projects/residential-furniture.avif";
+
+// =========================================================
 // BLOG
 // =========================================================
 
@@ -66,41 +80,31 @@ import blogBalcony from "../assets/images/blog/blog-balcony.jpg";
 
 // =========================================================
 // APPLICATION IMAGES
-// IMPORTANT:
-// Every application has its own separate image.
 // =========================================================
 
 export const applicationImages = {
   "GARDENS & PATIOS": gardensPatios,
-
   "POOLSIDE": poolsides,
-
   "BALCONIES & TERRACES": balconiesTerraces,
-
   "RESTAURANTS, CAFES & BARS": restaurantsCafes,
-
   "HOTELS & RESORTS": hotelsResorts,
-
   "CORPORATE OFFICES & PARKS": corporateOffices,
-
   "RESIDENTIAL SPACES": residentialSpaces,
-
   "CAR PARKS": carParks,
-
   "WALKWAYS & PAVEMENTS": walkwaysPavements,
 };
 
 // =========================================================
-// PROJECT IMAGES
+// PROJECT IMAGES OBJECT
 // =========================================================
 
 export const projectImages = {
-  furniture: furnitureGallery,
-  cafe: furnitureCafe,
-  awnings: awningsImage,
-  umbrellas: outdoorUmbrellasImage,
-  shadeSails: shadeSailsImage,
-  tensile: tensileStructuresImage,
+  hospitalityOutdoorFurniture: projectOutdoorFurniture,
+  hospitalityUmbrellas: projectHotelUmbrellas,
+  commercialAwnings: projectCommercialAwnings,
+  residentialTensile: projectTensileStructures,
+  hospitalityShadeSails: projectShadeSails,
+  residentialFurniture: projectResidentialFurniture,
 };
 
 // =========================================================
@@ -121,24 +125,15 @@ export const blogImages = {
 // =========================================================
 
 export const media = {
-  // =======================================================
   // HERO
-  // =======================================================
-
   heroSlide1,
   heroSlide2,
   heroSlide3,
 
-  // =======================================================
   // ABOUT
-  // =======================================================
-
   aboutSection,
 
-  // =======================================================
   // OUTDOOR FURNITURE
-  // =======================================================
-
   furnitureHero,
   furnitureOverview,
   furnitureGallery,
@@ -146,40 +141,27 @@ export const media = {
   furnitureMenu,
   furnitureBanner,
 
-  // =======================================================
   // MAIN PRODUCT CATEGORY IMAGES
-  // =======================================================
-
   awningsImage,
   outdoorFurnitureImage,
   outdoorUmbrellasImage,
   shadeSailsImage,
   tensileStructuresImage,
 
-  // =======================================================
   // APPLICATIONS
-  // =======================================================
-
   applicationsImage,
   applicationImages,
 
-  // =======================================================
   // PROJECTS
-  // =======================================================
-
   projectImages,
 
-  // =======================================================
   // BLOG
-  // =======================================================
-
   blogFurniture,
   blogAwnings,
   blogShadeSails,
   blogUmbrellas,
   blogTensile,
   blogBalcony,
-
   blogImages,
 
   // =======================================================

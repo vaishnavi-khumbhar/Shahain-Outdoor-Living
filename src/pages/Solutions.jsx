@@ -7,11 +7,19 @@ import Reveal from "../components/Reveal";
 import ContactCta from "../components/ContactCta";
 import { solutions } from "../data/solutions";
 import { getProductBySlug } from "../data/products";
+import { media } from "../data/media";
 
 const icons = {
   residential: HomeIcon,
   hospitality: Hotel,
   commercial: Building2,
+};
+
+// Maps each solution slug to a fitting existing image from media.js
+const solutionImages = {
+  residential: media.applicationImages["RESIDENTIAL SPACES"],
+  hospitality: media.applicationImages["HOTELS & RESORTS"],
+  commercial: media.applicationImages["CORPORATE OFFICES & PARKS"],
 };
 
 export default function Solutions() {
@@ -44,7 +52,12 @@ export default function Solutions() {
           <section key={solution.slug} className={`py-20 lg:py-28 ${index % 2 === 1 ? "bg-white/40" : ""}`}>
             <div className="container-shahain grid grid-cols-1 items-center gap-14 lg:grid-cols-12">
               <div className={`lg:col-span-5 ${reversed ? "lg:order-2 lg:col-start-8" : ""}`}>
-                <ImageFrame ratio="aspect-[4/5]" label={solution.name} />
+                <ImageFrame
+                  src={solutionImages[solution.slug]}
+                  alt={solution.name}
+                  ratio="aspect-[4/5]"
+                  label={solution.name}
+                />
               </div>
               <div className={`lg:col-span-6 ${reversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
                 <Reveal direction="up">
@@ -68,7 +81,7 @@ export default function Solutions() {
                         to={`/products/${slug}`}
                         className="font-body text-[12.5px] font-medium uppercase tracking-[0.14em] text-champagne link-underline"
                       >
-                        {product.name}
+                        {product.title}
                       </Link>
                     );
                   })}

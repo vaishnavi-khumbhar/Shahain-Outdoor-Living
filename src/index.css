@@ -28,6 +28,8 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-anchor: none; /* prevents browser scroll-anchoring from
+                               fighting ScrollToTop on route changes */
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -92,5 +94,32 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   PARAGRAPH TEXT — larger everywhere (mobile through desktop)
+   Placed outside @layer so it overrides component classes
+   like text-sm / text-base / text-[15px] (SectionHeading,
+   ProductCard, hero copy, etc.) via CSS Cascade Layers:
+   unlayered rules always beat layered utility classes,
+   regardless of specificity.
+========================================================= */
+main p {
+  font-size: 1.0625rem; /* 17px — mobile / base */
+  line-height: 1.75;
+}
+
+@media (min-width: 640px) {
+  main p {
+    font-size: 1.125rem; /* 18px — tablet and up */
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  main p {
+    font-size: 1.1875rem; /* 19px — desktop */
+    line-height: 1.85;
   }
 }
