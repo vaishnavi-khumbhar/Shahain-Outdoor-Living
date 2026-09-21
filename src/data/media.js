@@ -79,6 +79,12 @@ import blogTensile from "../assets/images/blog/blog-tensile.jpg";
 import blogBalcony from "../assets/images/blog/blog-balcony.jpg";
 
 // =========================================================
+// CLIENT LOGO STRIP (single combined image)
+// =========================================================
+
+import clientLogoStrip from "../assets/logo/trusted-clients-strip.png";
+
+// =========================================================
 // APPLICATION IMAGES
 // =========================================================
 
@@ -129,6 +135,7 @@ export const media = {
   heroSlide1,
   heroSlide2,
   heroSlide3,
+  clientLogoStrip,
 
   // ABOUT
   aboutSection,

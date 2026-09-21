@@ -287,10 +287,6 @@ export default function Home() {
 
       {/* =====================================================
           3. OUTDOOR SOLUTIONS
-          (FIXED: ProductCard wasn't resolving an image per
-          category, leaving empty navy boxes. Now uses ImageFrame
-          directly with an explicit slug → image map, same
-          approach already working on the Products page.)
       ===================================================== */}
 
       <section className="border-t border-sand/50 bg-white/20 py-10 sm:py-16 lg:py-20">
@@ -602,6 +598,8 @@ export default function Home() {
 
       {/* =====================================================
           8. CLIENTS
+          (ADDED: single combined client-logo-strip image, shown
+          above the scrolling text marquee)
       ===================================================== */}
 
       <section className="border-t border-sand/50 py-10 sm:py-20 lg:py-28">
@@ -612,6 +610,16 @@ export default function Home() {
             align="center"
             className="mb-8 sm:mb-14"
           />
+
+          {media.clientLogoStrip && (
+            <Reveal direction="up" className="mb-10 sm:mb-14">
+              <img
+                src={media.clientLogoStrip}
+                alt="Trusted by Forbes Marshall, JW Marriott, Panchshil, The Ritz-Carlton, Karia Developers and more"
+                className="mx-auto h-auto w-full max-w-3xl object-contain"
+              />
+            </Reveal>
+          )}
         </div>
 
         <div className="overflow-hidden border-y border-sand/50 py-6 sm:py-8">

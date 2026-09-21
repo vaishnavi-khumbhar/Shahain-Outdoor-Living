@@ -41,7 +41,24 @@ export default function Clients() {
       </section>
 
       {/* =====================================================
-          CLIENT SECTORS — spacing tightened, responsive
+          LOGO STRIP — single combined image of client logos
+      ===================================================== */}
+      {media.clientLogoStrip && (
+        <section className="border-b border-sand/50 bg-white py-5 sm:py-5">
+          <div className="container-shahain">
+            <Reveal direction="up">
+              <img
+                src={media.clientLogoStrip}
+                alt="Trusted by Forbes Marshall, JW Marriott, Panchshil, The Ritz-Carlton, Karia Developers and more"
+                className="mx-auto h-auto w-full max-w-4xl object-contain"
+              />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* =====================================================
+          CLIENT SECTORS
       ===================================================== */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="container-shahain flex flex-col gap-12 sm:gap-14 lg:gap-16">
