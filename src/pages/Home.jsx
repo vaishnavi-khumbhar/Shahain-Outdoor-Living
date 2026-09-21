@@ -627,7 +627,7 @@ export default function Home() {
             {[...clients, ...clients].map((client, i) => (
               <span
                 key={`${client}-${i}`}
-                className="font-heading text-xl text-navy/50 sm:text-navy/40 lg:text-2xl"
+                className="font-heading text-xl text-navy/50 sm:text-navy/70 lg:text-4xl"
               >
                 {client}
               </span>
