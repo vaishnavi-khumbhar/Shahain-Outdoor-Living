@@ -116,6 +116,37 @@ export const projectShowcase = [
       "Pittie Developers, Mumbai",
     ],
   },
+
+  // =======================================================
+  // COMPLETED AWNING INSTALLATIONS
+  // From the awnings project catalog / brochure — real,
+  // named completed projects. Image reused from the existing
+  // commercial-awnings placeholder; swap in a real brochure
+  // photo once saved to src/assets/.
+  // =======================================================
+
+  {
+    slug: "completed-awning-installations",
+    category: "awnings",
+    sector: "Completed Installations",
+    title: "Awning Projects Delivered Across Pune & Mumbai",
+    image: projectImages.commercialAwnings,
+
+    clients: [
+      "Forbes Marshall – Chakan",
+      "Forbes Marshall – Kasarwadi",
+      "Flour Works Restaurant, Kharadi",
+      "Rocomama Restaurant, WTC Kharadi",
+      "Marriott Suites",
+      "Panchshil Builders",
+      "Sagar Properties",
+      "Mr. Vikram Kakade",
+      "Mr. Narendra Firodia, Ahmednagar",
+      "Private Residence, Boat Club Road",
+      "Private Residence, Kondhwa",
+      "Private Residence, Chembur, Mumbai",
+    ],
+  },
 ];
 
 // =========================================================

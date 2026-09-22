@@ -33,6 +33,10 @@ const gallery = [
   { src: media.umbrellaRoma, label: "Outdoor Umbrellas" },
 ];
 
+// Sectors served — company-wide, matches the existing "Who We Are"
+// copy (clubs, corporate offices, hotels, restaurants, private residences).
+const sectorsServed = ["Residential", "Commercial", "Hospitality", "Retail"];
+
 export default function About() {
   return (
     <>
@@ -83,6 +87,17 @@ export default function About() {
               title="Fully-weatherproof outdoor products, made to last."
               description="Shahain Outdoor Living provides all-weatherproof outdoor products that include outdoor furniture, umbrellas, retractable awnings and fixed tensile fabric structures. Our work spans gardens, terraces, poolsides and beaches, for clubs, corporate offices, hotels, restaurants and private residences."
             />
+
+            <Reveal direction="up" delay={0.2} className="mt-6 flex flex-wrap gap-3">
+              {sectorsServed.map((sector) => (
+                <span
+                  key={sector}
+                  className="border border-sand/70 px-4 py-2 font-body text-[12px] uppercase tracking-[0.14em] text-navy"
+                >
+                  {sector}
+                </span>
+              ))}
+            </Reveal>
           </div>
         </div>
       </section>

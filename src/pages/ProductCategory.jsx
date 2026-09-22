@@ -41,18 +41,26 @@ function applicationIcon(label) {
 }
 
 export default function ProductCategory() {
-  const { slug } = useParams();
+  const { categorySlug: slug } = useParams();
   const category = getProductBySlug(slug);
 
   if (!category) return <Navigate to="/products" replace />;
+
+  // Fallbacks: data/products.js currently provides `title`, `description`
+  // and `intro`, not `name`, `shortName` or `tagline`. These fall back
+  // gracefully instead of rendering blank or crashing on .toLowerCase().
+  const displayName = category.name || category.title;
+  const shortName = category.shortName || category.title;
+  const tagline = category.tagline || category.description;
+  const overviewImage = category.overviewImage || category.galleryImage || category.heroImage;
 
   const relatedSolutions = getSolutionsByProduct(category.slug);
 
   return (
     <>
       <Seo
-        title={category.name}
-        description={`${category.tagline}. ${category.intro}`}
+        title={displayName}
+        description={`${tagline}. ${category.intro}`}
         path={`/products/${category.slug}`}
       />
 
@@ -61,17 +69,17 @@ export default function ProductCategory() {
         <div className="flex flex-col justify-center bg-navy px-6 py-32 pt-40 sm:px-8 lg:px-16 lg:py-24 lg:pt-24">
           <Reveal direction="up">
             <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">
-              {category.shortName}
+              {shortName}
             </span>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h1 className="mt-5 max-w-md text-balance font-heading text-[clamp(2.2rem,4.5vw,3.5rem)] font-medium leading-[1.1] text-ivory">
-              {category.name}
+              {displayName}
             </h1>
           </Reveal>
           <Reveal direction="up" delay={0.2}>
             <p className="mt-6 max-w-md text-balance font-body text-base leading-relaxed text-ivory/65">
-              {category.tagline}
+              {tagline}
             </p>
           </Reveal>
           <Reveal direction="up" delay={0.3} className="mt-8">
@@ -79,13 +87,13 @@ export default function ProductCategory() {
               to="/contact"
               className="inline-flex items-center gap-2 border border-champagne px-7 py-4 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] text-champagne transition-colors duration-300 hover:bg-champagne hover:text-navy"
             >
-              Enquire About {category.shortName}
+              Enquire About {shortName}
             </Link>
           </Reveal>
         </div>
         <ImageFrame
           src={category.heroImage}
-          alt={category.name}
+          alt={displayName}
           ratio="aspect-[4/5] lg:aspect-auto lg:h-full"
           label={category.heroLabel}
           border={false}
@@ -96,14 +104,14 @@ export default function ProductCategory() {
     2. PRODUCT OVERVIEW
 ===================================================== */}
 
-<section className="py-20 lg:py-20">
-  <div className="container-shahain grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+<section className="py-14 sm:py-16 lg:py-20">
+  <div className="container-shahain grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
 
     {/* TEXT */}
     <div className="lg:col-span-6">
       <SectionHeading
         eyebrow="Overview"
-        title={category.tagline}
+        title={tagline}
         description={category.intro}
       />
 
@@ -138,8 +146,8 @@ export default function ProductCategory() {
     <div className="lg:col-span-5 lg:col-start-8">
       <Reveal direction="right">
         <ImageFrame
-          src={category.overviewImage}
-          alt={`${category.name} overview`}
+          src={overviewImage}
+          alt={`${displayName} overview`}
           ratio="aspect-[4/5]"
           label={category.heroLabel}
         />
@@ -150,13 +158,13 @@ export default function ProductCategory() {
 </section>
 
       {/* 3. Product Categories (the range) */}
-      <section className="border-t border-sand/50 bg-white/40 py-20 lg:py-20">
+      <section className="border-t border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
         <div className="container-shahain">
-          <SectionHeading eyebrow="The Range" title="What's included" className="mb-14 lg:mb-16" />
-          <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <SectionHeading eyebrow="The Range" title="What's included" className="mb-8 sm:mb-10 lg:mb-16" />
+          <Stagger className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
             {category.groups.map((group) => (
               <StaggerItem key={group.title}>
-                <div className="h-full border border-sand/60 bg-ivory p-8 lg:p-10">
+                <div className="h-full border border-sand/60 bg-ivory p-6 sm:p-8 lg:p-10">
                   <h3 className="font-heading text-xl text-navy">{group.title}</h3>
                   {group.description ? (
                     <p className="mt-3 font-body text-sm leading-relaxed text-gray">{group.description}</p>
@@ -183,15 +191,15 @@ export default function ProductCategory() {
 
       {/* 4. Applications */}
       {category.applications ? (
-        <section className="py-20 lg:py-20">
+        <section className="py-14 sm:py-16 lg:py-20">
           <div className="container-shahain">
-            <SectionHeading eyebrow="Where It's Used" title="Applications" align="center" className="mb-16 lg:mb-20" />
-            <Stagger className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <SectionHeading eyebrow="Where It's Used" title="Applications" align="center" className="mb-10 sm:mb-12 lg:mb-20" />
+            <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {category.applications.map((application) => {
                 const Icon = applicationIcon(application);
                 return (
                   <StaggerItem key={application}>
-                    <div className="group flex h-full flex-col items-center gap-4 border border-sand/60 px-4 py-10 text-center transition-colors duration-300 hover:border-champagne hover:bg-navy">
+                    <div className="group flex h-full flex-col items-center gap-4 border border-sand/60 px-4 py-8 sm:py-10 text-center transition-colors duration-300 hover:border-champagne hover:bg-navy">
                       <Icon className="h-6 w-6 text-champagne" strokeWidth={1.25} />
                       <span className="font-body text-[12px] font-medium uppercase tracking-[0.1em] text-navy transition-colors duration-300 group-hover:text-ivory">
                         {application}
@@ -209,21 +217,21 @@ export default function ProductCategory() {
     5. GALLERY — SINGLE IMAGE
 ===================================================== */}
 
-<section className="border-t border-sand/50 bg-white/40 py-20 lg:py-20">
+<section className="border-t border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
   <div className="container-shahain">
 
     <SectionHeading
       eyebrow="Gallery"
-      title={`${category.name} in place`}
-      description={`Explore how our ${category.shortName.toLowerCase()} solutions look in real outdoor spaces.`}
-      className="mb-14 lg:mb-16"
+      title={`${displayName} in place`}
+      description={`Explore how our ${shortName.toLowerCase()} solutions look in real outdoor spaces.`}
+      className="mb-8 sm:mb-10 lg:mb-16"
     />
 
     <Reveal direction="up">
       <div className="mx-auto max-w-6xl overflow-hidden">
         <ImageFrame
           src={category.galleryImage}
-          alt={`${category.name} outdoor installation`}
+          alt={`${displayName} outdoor installation`}
           ratio="aspect-[16/8]"
           label={category.heroLabel}
           className="transition-transform duration-700 hover:scale-[1.01]"
@@ -236,13 +244,13 @@ export default function ProductCategory() {
 
       {/* 6. Related Solutions */}
       {relatedSolutions.length > 0 ? (
-        <section className="py-24 lg:py-28">
+        <section className="py-16 sm:py-20 lg:py-28">
           <div className="container-shahain">
             <SectionHeading
               eyebrow="Related Solutions"
-              title={`Where ${category.shortName.toLowerCase()} fits.`}
+              title={`Where ${shortName.toLowerCase()} fits.`}
               align="center"
-              className="mb-14"
+              className="mb-8 sm:mb-10 lg:mb-14"
             />
             <Stagger className={`grid grid-cols-1 gap-6 ${relatedSolutions.length === 2 ? "sm:grid-cols-2 sm:max-w-2xl sm:mx-auto" : "sm:grid-cols-3"}`}>
               {relatedSolutions.map((solution) => (
@@ -269,7 +277,7 @@ export default function ProductCategory() {
 
       {/* 7. Enquiry CTA */}
       <ContactCta
-        title={`Ready to plan your ${category.name.toLowerCase()}?`}
+        title={`Ready to plan your ${displayName.toLowerCase()}?`}
         description="Share your space and requirements — our team will help you choose the right products."
       />
     </>

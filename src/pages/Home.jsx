@@ -385,13 +385,15 @@ export default function Home() {
       ) : null}
 
       {/* =====================================================
-          5. FEATURED PROJECTS
+          5. OUR WORK
+          (RENAMED from "Featured Projects" — same section,
+          same data, just relabeled per request)
       ===================================================== */}
 
       <section className="border-t border-sand/50 bg-white/40 py-10 sm:py-16 lg:py-20">
         <div className="container-shahain">
           <SectionHeading
-            eyebrow="Featured Projects"
+            eyebrow="Our Work"
             title="Where our work lives."
             description="Outdoor furniture, awnings, umbrellas, shade sails and tensile structures delivered across hospitality, commercial and residential projects."
             align="center"
@@ -598,8 +600,6 @@ export default function Home() {
 
       {/* =====================================================
           8. CLIENTS
-          (ADDED: single combined client-logo-strip image, shown
-          above the scrolling text marquee)
       ===================================================== */}
 
       <section className="border-t border-sand/50 py-10 sm:py-20 lg:py-28">
