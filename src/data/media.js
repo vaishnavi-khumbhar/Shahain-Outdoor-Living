@@ -4,7 +4,7 @@
 
 import heroSlide1 from "../assets/images/hero/hero-11.jpg";
 import heroSlide2 from "../assets/images/hero/hero-2.jpg";
-import heroSlide3 from "../assets/images/hero/hero-3.jpg";
+import heroSlide3 from "../assets/images/hero/hero-1.jpg";
 
 // =========================================================
 // ABOUT
@@ -16,22 +16,22 @@ import aboutSection from "../assets/images/about/about.jpg";
 // OUTDOOR FURNITURE
 // =========================================================
 
-import furnitureHero from "../assets/images/outdoor-furniture/hero.jpg";
+import furnitureHero from "../assets/images/outdoor-furniture/hero.webp";
 import furnitureOverview from "../assets/images/outdoor-furniture/overview.jpg";
-import furnitureGallery from "../assets/images/outdoor-furniture/gallery.jpg";
-import furnitureCafe from "../assets/images/outdoor-furniture/cafe.jpg";
-import furnitureMenu from "../assets/images/outdoor-furniture/menu.jpg";
-import furnitureBanner from "../assets/images/outdoor-furniture/banner.jpg";
+import furnitureGallery from "../assets/images/outdoor-furniture/gallery.webp";
+import furnitureCafe from "../assets/images/outdoor-furniture/cafe.webp";
+import furnitureMenu from "../assets/images/outdoor-furniture/menu.webp";
+import furnitureBanner from "../assets/images/outdoor-furniture/banner.webp";
 
 // =========================================================
 // MAIN PRODUCT CATEGORY IMAGES
 // =========================================================
 
 import awningsImage from "../assets/images/awnings.jpg";
-import outdoorFurnitureImage from "../assets/images/outdoor-furniture.jpg";
+import outdoorFurnitureImage from "../assets/images/outdoor-furniture1.webp";
 import outdoorUmbrellasImage from "../assets/images/outdoor-umbrellas.jpg";
 import shadeSailsImage from "../assets/images/shade-sails.jpg";
-import tensileStructuresImage from "../assets/images/tensile-structures.png";
+import tensileStructuresImage from "../assets/images/tensile-structures.jpg";
 
 // =========================================================
 // APPLICATIONS MAIN IMAGE
@@ -44,10 +44,10 @@ import applicationsImage from "../assets/images/applications1.jpg";
 // =========================================================
 
 import gardensPatios from "../assets/images/applications/gardens-patios.jpg";
-import poolsides from "../assets/images/applications/poolsides.jpg";
+import poolsides from "../assets/images/applications/poolside.jpg";
 import balconiesTerraces from "../assets/images/applications/balconies-terraces.jpg";
-import restaurantsCafes from "../assets/images/applications/restaurants-cafes.jpg";
-import hotelsResorts from "../assets/images/applications/hotels-resorts.jpg";
+import restaurantsCafes from "../assets/images/applications/restaurants-cafe.jpg";
+import hotelsResorts from "../assets/images/applications/hotels-resorts.webp";
 import corporateOffices from "../assets/images/applications/corporate-offices.jpg";
 import residentialSpaces from "../assets/images/applications/residential-spaces.jpg";
 import carParks from "../assets/images/applications/car-parks.jpg";
@@ -60,21 +60,21 @@ import walkwaysPavements from "../assets/images/applications/walkways-pavements.
 // inside: src/assets/images/projects/
 // =========================================================
 
-import projectOutdoorFurniture from "../assets/images/projects/outdoor-furniture.jpg";
-import projectHotelUmbrellas from "../assets/images/projects/hotel-umbrellas.webp";
+import projectOutdoorFurniture from "../assets/images/projects/outdoor-furniture.webp";
+import projectHotelUmbrellas from "../assets/images/projects/hotel-umbrellas.jpg";
 import projectCommercialAwnings from "../assets/images/projects/commercial-awnings.jpg";
-import projectTensileStructures from "../assets/images/projects/tensile-structures.jpeg";
+import projectTensileStructures from "../assets/images/projects/tensile-structure.jpg";
 import projectShadeSails from "../assets/images/projects/shade-sails.jpg";
-import projectResidentialFurniture from "../assets/images/projects/residential-furniture.avif";
+import projectResidentialFurniture from "../assets/images/projects/residential-furniture.jpg";
 
 // =========================================================
 // BLOG
 // =========================================================
 
-import blogFurniture from "../assets/images/blog/blog-furniture.jpg";
+import blogFurniture from "../assets/images/blog/blog-furniture.webp";
 import blogAwnings from "../assets/images/blog/blog-awnings.jpg";
 import blogShadeSails from "../assets/images/blog/blog-shade-sails.jpg";
-import blogUmbrellas from "../assets/images/blog/blog-umbrellas.jpg";
+import blogUmbrellas from "../assets/images/blog/blog-umbrellas.png";
 import blogTensile from "../assets/images/blog/blog-tensile.jpg";
 import blogBalcony from "../assets/images/blog/blog-balcony.jpg";
 

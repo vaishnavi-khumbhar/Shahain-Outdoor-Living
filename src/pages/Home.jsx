@@ -335,54 +335,79 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          4. FEATURED OUTDOOR FURNITURE
-      ===================================================== */}
+      4. FEATURED OUTDOOR FURNITURE
+  ===================================================== */}
 
-      {furnitureCategory ? (
-        <section className="py-10 sm:py-16 lg:py-20">
-          <div className="container-shahain grid grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-6">
-              <ImageFrame
-                src={media.furnitureBanner}
-                alt="Premium outdoor furniture for gardens and patios"
-                ratio="aspect-[4/5]"
-                label="Outdoor Furniture"
-              />
-            </div>
+{furnitureCategory ? (
+  <section className="py-10 sm:py-14 lg:py-20">
+    <div className="container-shahain grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-16">
 
-            <div className="lg:col-span-5 lg:col-start-8">
-              <SectionHeading
-                eyebrow="Featured Category"
-                title="Outdoor furniture, built to accentuate the space."
-                description={furnitureCategory.intro || furnitureCategory.description}
-              />
+      {/* IMAGE */}
+      <div className="lg:col-span-6 w-full">
+        <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-sand/20 shadow-lg">
+          <img
+            src={media.furnitureBanner}
+            alt="Premium outdoor furniture for gardens and patios"
+            className="
+              block
+              w-full
+              h-auto
+              aspect-[4/3]
+              sm:aspect-[16/11]
+              lg:aspect-[4/3]
+              object-cover
+              object-center
+              transition-transform
+              duration-700
+              hover:scale-[1.02]
+            "
+          />
 
-              {furnitureCategory.groups?.length > 0 && (
-                <Reveal
-                  direction="up"
-                  delay={0.2}
-                  className="mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4"
-                >
-                  {furnitureCategory.groups.map((group) => (
-                    <div
-                      key={group.title}
-                      className="border-t border-sand/60 pt-3 sm:pt-4"
-                    >
-                      <h3 className="font-heading text-xl text-navy sm:text-lg">
-                        {group.title}
-                      </h3>
-
-                      <p className="mt-1 font-body text-[15px] leading-relaxed text-gray sm:text-sm">
-                        {group.items.join(" · ")}
-                      </p>
-                    </div>
-                  ))}
-                </Reveal>
-              )}
-            </div>
+          {/* Small label */}
+          <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5">
+            <span className="inline-flex items-center rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-medium tracking-wide text-navy shadow-md backdrop-blur-sm sm:px-4 sm:py-2 sm:text-xs">
+              Outdoor Furniture
+            </span>
           </div>
-        </section>
-      ) : null}
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="lg:col-span-5 lg:col-start-8">
+        <SectionHeading
+          eyebrow="Featured Category"
+          title="Outdoor furniture, built to accentuate the space."
+          description={
+            furnitureCategory.intro || furnitureCategory.description
+          }
+        />
+
+        {furnitureCategory.groups?.length > 0 && (
+          <Reveal
+            direction="up"
+            delay={0.2}
+            className="mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4"
+          >
+            {furnitureCategory.groups.map((group) => (
+              <div
+                key={group.title}
+                className="border-t border-sand/60 pt-3 sm:pt-4"
+              >
+                <h3 className="font-heading text-lg text-navy sm:text-xl">
+                  {group.title}
+                </h3>
+
+                <p className="mt-1 font-body text-sm leading-relaxed text-gray sm:text-[15px]">
+                  {group.items.join(" · ")}
+                </p>
+              </div>
+            ))}
+          </Reveal>
+        )}
+      </div>
+    </div>
+  </section>
+) : null}
 
       {/* =====================================================
           5. OUR WORK

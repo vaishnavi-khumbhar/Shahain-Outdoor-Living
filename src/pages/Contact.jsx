@@ -38,19 +38,25 @@ export default function Contact() {
     }));
   };
 
-  const subject = encodeURIComponent(
-    `Enquiry from ${form.name || "the Shahain website"}`
-  );
+ const whatsappMessage = encodeURIComponent(
+  `Hello Shahain Outdoor Living,
 
-  const body = encodeURIComponent(
-    `Name: ${form.name}
+I would like to enquire about your outdoor living solutions.
+
+Name: ${form.name}
 Phone: ${form.phone}
 Email: ${form.email}
-Interested in: ${form.interest || "Not specified"}
+Interested In: ${form.interest || "Not specified"}
 
 Message:
-${form.message}`
-  );
+${form.message || "No message provided"}
+
+Thank you.`
+);
+
+const whatsappNumber = siteConfig.contact.whatsappNumber.replace(/\D/g, "");
+
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
@@ -349,13 +355,15 @@ ${form.message}`
                 gap-5
                 sm:grid-cols-2
               "
-              onSubmit={(e) => {
-                e.preventDefault();
+             onSubmit={(e) => {
+  e.preventDefault();
 
-                window.location.href =
-                  `${siteConfig.contact.emailHref}` +
-                  `?subject=${subject}&body=${body}`;
-              }}
+  window.open(
+    whatsappLink,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}}
             >
               {/* NAME */}
 
