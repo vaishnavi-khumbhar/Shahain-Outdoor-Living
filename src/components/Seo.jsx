@@ -1,36 +1,41 @@
 import { useEffect } from "react";
+import { siteConfig } from "../data/siteConfig";
 
-const SITE_TITLE = "Shahain Outdoor Living";
-
-/**
- * Lightweight per-page SEO: sets document title + meta description without
- * pulling in a Helmet dependency. Restores nothing on unmount since the next
- * page always sets its own values immediately (React Router SPA navigation).
- */
-export default function Seo({ title, description, path }) {
+export default function Seo({ title, description, path = "/" }) {
   useEffect(() => {
-    document.title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+    const fullTitle = title
+      ? `${title} | ${siteConfig.name}`
+      : `${siteConfig.name} | ${siteConfig.tagline}`;
 
-    if (description) {
-      let tag = document.querySelector('meta[name="description"]');
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("name", "description");
-        document.head.appendChild(tag);
+    document.title = fullTitle;
+
+    const setMeta = (attr, key, value) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
       }
-      tag.setAttribute("content", description);
-    }
+      el.setAttribute("content", value);
+    };
 
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", title ? `${title} | ${SITE_TITLE}` : SITE_TITLE);
+    const desc = description || siteConfig.description;
+    const url = `${siteConfig.url}${path === "/" ? "" : path}`;
 
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc && description) ogDesc.setAttribute("content", description);
+    setMeta("name", "description", desc);
+    setMeta("property", "og:title", fullTitle);
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:site_name", siteConfig.name);
+    setMeta("property", "og:url", url);
+    setMeta("property", "og:type", "website");
 
     let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical && path) {
-      canonical.setAttribute("href", `https://www.shahain.com${path}`);
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
     }
+    canonical.setAttribute("href", url);
   }, [title, description, path]);
 
   return null;

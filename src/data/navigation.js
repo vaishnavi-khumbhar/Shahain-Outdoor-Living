@@ -6,7 +6,7 @@ export const mainNav = [
     children: [
       { label: "Outdoor Furniture", path: "/products/outdoor-furniture" },
       { label: "Awnings", path: "/products/awnings" },
-      { label: "Outdoor Umbrellas", path: "/products/umbrellas" },
+      { label: "Umbrellas & Gazebos", path: "/products/umbrellas" },
       { label: "Shade Sails", path: "/products/shade-sails" },
       { label: "Tensile Structures", path: "/products/tensile-structures" },
     ],
@@ -23,7 +23,7 @@ export const footerNav = {
   products: [
     { label: "Outdoor Furniture", path: "/products/outdoor-furniture" },
     { label: "Awnings", path: "/products/awnings" },
-    { label: "Outdoor Umbrellas", path: "/products/umbrellas" },
+    { label: "Umbrellas & Gazebos", path: "/products/umbrellas" },
     { label: "Shade Sails", path: "/products/shade-sails" },
     { label: "Tensile Structures", path: "/products/tensile-structures" },
   ],
