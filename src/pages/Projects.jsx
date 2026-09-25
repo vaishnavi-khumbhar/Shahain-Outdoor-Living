@@ -20,7 +20,7 @@ export default function Projects() {
 
       <Seo
         title="Projects"
-        description="A look at where Shahain Outdoor Living's furniture, awnings, umbrellas, shade sails and tensile structures have been delivered across hospitality, commercial and residential projects."
+        description="A look at where Shahain Furniture's outdoor furniture, awnings, umbrellas, shade sails and tensile structures have been delivered across hospitality, commercial and residential projects."
         path="/projects"
       />
 

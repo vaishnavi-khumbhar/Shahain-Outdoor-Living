@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
  const whatsappMessage = encodeURIComponent(
-  `Hello Shahain Outdoor Living,
+  `Hello Shahain Furniture,
 
 I would like to enquire about your outdoor living solutions.
 
@@ -66,7 +66,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
       <Seo
         title="Contact Us"
-        description="Get in touch with Shahain Outdoor Living in Pune for premium outdoor furniture, awnings, umbrellas, shade sails and tensile structures. Call, WhatsApp or send an enquiry."
+        description="Get in touch with Shahain Furniture in Pune for premium outdoor furniture, awnings, umbrellas, gazebos and tensile structures. Call, WhatsApp or send an enquiry."
         path="/contact"
       />
 
@@ -508,13 +508,13 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
           href="https://share.google/1P2WwKaB1HrONL3Nw"
           target="_blank"
           rel="noreferrer"
-          aria-label="Open Shahain Outdoor Living location in Google Maps"
+          aria-label="Open Shahain Furniture location in Google Maps"
           className="group relative block"
         >
           <div className="relative h-[320px] sm:h-[400px] lg:h-[480px]">
 
             <iframe
-              title="Shahain Outdoor Living Location"
+              title="Shahain Furniture Location"
               src="https://www.google.com/maps?q=Shahain%20Outdoor%20Living%20Pune&output=embed"
               className="
                 pointer-events-none

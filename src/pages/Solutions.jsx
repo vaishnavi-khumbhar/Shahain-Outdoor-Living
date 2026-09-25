@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Building2, Home as HomeIcon, Hotel } from "lucide-react";
+import { Building2, Home as HomeIcon, Hotel, Users } from "lucide-react";
 import Seo from "../components/Seo";
 import SectionHeading from "../components/SectionHeading";
 import ImageFrame from "../components/ImageFrame";
@@ -21,6 +21,23 @@ const solutionImages = {
   hospitality: media.applicationImages["HOTELS & RESORTS"],
   commercial: media.applicationImages["CORPORATE OFFICES & PARKS"],
 };
+
+// Commercial & Corporate Projects — who we serve, and who we partner with.
+const commercialSectors = [
+  "Hotels & Resorts",
+  "Restaurants & Cafés",
+  "Corporate Offices",
+  "Commercial Properties",
+  "Educational Institutions",
+];
+
+const projectPartners = [
+  "Architects",
+  "Interior Designers",
+  "Landscape Designers",
+  "Builders",
+  "Developers",
+];
 
 export default function Solutions() {
   return (
@@ -91,6 +108,85 @@ export default function Solutions() {
           </section>
         );
       })}
+
+      {/* =====================================================
+          COMMERCIAL & CORPORATE PROJECTS
+      ===================================================== */}
+
+      <section className="border-t border-sand/50 bg-navy py-20 lg:py-28">
+        <div className="container-shahain">
+          <Reveal direction="up">
+            <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">
+              Commercial &amp; Corporate Projects
+            </span>
+          </Reveal>
+
+          <Reveal direction="up" delay={0.1}>
+            <h2 className="mt-5 max-w-2xl text-balance font-heading text-[clamp(1.9rem,4.5vw,3rem)] font-medium leading-[1.15] text-ivory">
+              Your Space. Your Requirement. Our Solution.
+            </h2>
+          </Reveal>
+
+          <Reveal direction="up" delay={0.16}>
+            <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-ivory/70">
+              Commercial outdoor spaces need to look good, work efficiently
+              and stand up to everyday use. Shahain Furniture provides
+              outdoor furniture and shade solutions for:
+            </p>
+          </Reveal>
+
+          <Reveal direction="up" delay={0.22} className="mt-8 flex flex-wrap gap-3">
+            {commercialSectors.map((sector) => (
+              <span
+                key={sector}
+                className="border border-ivory/25 px-4 py-2 font-body text-[12px] uppercase tracking-[0.12em] text-ivory/85"
+              >
+                {sector}
+              </span>
+            ))}
+          </Reveal>
+
+          <Reveal direction="up" delay={0.3} className="mt-12 border-t border-ivory/15 pt-10">
+            <div className="flex items-start gap-4">
+              <Users className="mt-1 h-6 w-6 shrink-0 text-champagne" strokeWidth={1.5} />
+              <div>
+                <p className="font-body text-base leading-relaxed text-ivory/70">
+                  We also work with architects, interior designers, landscape
+                  designers, builders and developers on customised outdoor
+                  requirements.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {projectPartners.map((partner) => (
+                    <span
+                      key={partner}
+                      className="font-body text-[11px] font-medium uppercase tracking-[0.14em] text-champagne"
+                    >
+                      {partner}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal direction="up" delay={0.36}>
+            <p className="mt-10 max-w-2xl font-body text-base leading-relaxed text-ivory/70">
+              From furniture to large-scale shade solutions, we help create
+              spaces that are functional, inviting and designed around your
+              project.
+            </p>
+          </Reveal>
+
+          <Reveal direction="up" delay={0.4} className="mt-8">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 border border-champagne px-7 py-4 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] text-champagne transition-colors duration-300 hover:bg-champagne hover:text-navy"
+            >
+              Planning a Project? Let's Talk
+            </Link>
+          </Reveal>
+        </div>
+      </section>
 
       <ContactCta />
     </>

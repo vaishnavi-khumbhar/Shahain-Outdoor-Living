@@ -54,6 +54,11 @@ export default function ProductCategory() {
   const tagline = category.tagline || category.description;
   const overviewImage = category.overviewImage || category.galleryImage || category.heroImage;
 
+  // Optional per-category CTA button label (e.g. "Explore Our Outdoor
+  // Furniture", "Discuss Your Requirement"). Falls back to the generic
+  // label if a category doesn't set its own.
+  const enquireCta = category.ctaLabel || `Enquire About ${shortName}`;
+
   const relatedSolutions = getSolutionsByProduct(category.slug);
 
   return (
@@ -87,7 +92,7 @@ export default function ProductCategory() {
               to="/contact"
               className="inline-flex items-center gap-2 border border-champagne px-7 py-4 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] text-champagne transition-colors duration-300 hover:bg-champagne hover:text-navy"
             >
-              Enquire About {shortName}
+              {enquireCta}
             </Link>
           </Reveal>
         </div>
@@ -169,14 +174,18 @@ export default function ProductCategory() {
                   {group.description ? (
                     <p className="mt-3 font-body text-sm leading-relaxed text-gray">{group.description}</p>
                   ) : null}
-                  <ul className="mt-5 space-y-3 border-t border-sand/50 pt-5">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 font-body text-sm leading-relaxed text-gray">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.75} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+
+                                   {group.items?.length > 0 && (
+                    <ul className="mt-5 space-y-3 border-t border-sand/50 pt-5">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 font-body text-sm leading-relaxed text-gray">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.75} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   {group.note ? (
                     <p className="mt-5 border-t border-sand/50 pt-4 font-body text-xs italic leading-relaxed text-gray/80">
                       {group.note}

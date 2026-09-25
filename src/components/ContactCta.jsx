@@ -5,8 +5,8 @@ import { ctaLabels, siteConfig } from "../data/siteConfig";
 
 export default function ContactCta({
   eyebrow = "Start a Project",
-  title = "Let's discuss your outdoor space.",
-  description = "Tell us about your project and our team will get back to you with the right furniture, shade or structure solution.",
+  title = "Let's Create Something Better Outdoors",
+  description = "Planning a new outdoor space or upgrading an existing one? Whether you need outdoor furniture, awnings, umbrellas, gazebos or a customised tensile structure, tell us what you have in mind — we'll help you find a solution that works beautifully for your space.",
 }) {
   return (
     <section className="bg-deep-navy py-16 sm:py-20 lg:py-32">
@@ -76,7 +76,7 @@ export default function ContactCta({
             variant="champagne"
             className="w-full justify-center sm:w-auto"
           >
-            {ctaLabels.discuss}
+            Send an Enquiry
           </Button>
 
           {/* Call Button */}

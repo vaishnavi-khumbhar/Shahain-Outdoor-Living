@@ -27,7 +27,7 @@ export default function Products() {
     <>
       <Seo
         title="Products"
-        description="Explore Shahain Outdoor Living's range of outdoor furniture, awnings, umbrellas, shade sails and tensile structures for residential, hospitality and commercial spaces."
+        description="Explore Shahain Furniture's range of outdoor furniture, awnings, umbrellas, gazebos, shade sails and tensile structures for residential, hospitality and commercial spaces."
         path="/products"
       />
 
@@ -52,9 +52,9 @@ export default function Products() {
 
             <Reveal direction="up" delay={0.2}>
               <p className="mt-6 max-w-lg font-body text-sm leading-relaxed text-ivory/65 sm:text-base">
-                All-weatherproof furniture, awnings, umbrellas, shade sails and
-                tensile structures — for gardens, terraces, poolsides and
-                beaches.
+                All-weatherproof furniture, awnings, umbrellas, gazebos, shade
+                sails and tensile structures — for gardens, terraces,
+                poolsides and beaches.
               </p>
             </Reveal>
           </div>
@@ -63,7 +63,7 @@ export default function Products() {
             <Reveal direction="up" delay={0.15}>
               <ImageFrame
                 src={media.outdoorUmbrellasImage}
-                alt="Shahain Outdoor Living products"
+                alt="Shahain Furniture products"
                 ratio="aspect-[4/3]"
                 label="Outdoor Products"
               />

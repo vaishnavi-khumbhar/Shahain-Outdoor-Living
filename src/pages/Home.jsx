@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Handshake,
   BadgeIndianRupee,
+  BadgeCheck,
   Award,
 } from "lucide-react";
 
@@ -45,6 +46,49 @@ const categoryImages = {
 };
 
 /* =========================================================
+   HOME PAGE — "MADE FOR THE OUTDOORS" TILES
+   4 display tiles per the new marketing copy. Umbrellas &
+   Gazebos links to the existing /products/umbrellas page;
+   Shade Sails keeps its own separate page (per the earlier
+   decision) but isn't shown as its own tile here.
+========================================================= */
+
+const homeCategoryTiles = [
+  {
+    slug: "outdoor-furniture",
+    title: "Outdoor Furniture",
+    description:
+      "Premium outdoor furniture in Pune designed to bring comfort and style to gardens, balconies, patios, terraces and poolside spaces.",
+    cta: "Explore Furniture",
+    image: categoryImages["outdoor-furniture"],
+  },
+  {
+    slug: "awnings",
+    title: "Awnings",
+    description:
+      "From retractable and fixed awnings to window awnings and car parking shades, create comfortable shade exactly where you need it.",
+    cta: "Explore Awnings",
+    image: categoryImages.awnings,
+  },
+  {
+    slug: "umbrellas",
+    title: "Umbrellas & Gazebos",
+    description:
+      "Stylish outdoor umbrellas, gazebos and shade sails designed for gardens, patios, poolside areas and hospitality spaces.",
+    cta: "Explore Shade Solutions",
+    image: categoryImages.umbrellas,
+  },
+  {
+    slug: "tensile-structures",
+    title: "Tensile Structures",
+    description:
+      "Custom tensile fabric structures that combine effective shade with contemporary architectural design.",
+    cta: "Explore Structures",
+    image: categoryImages["tensile-structures"],
+  },
+];
+
+/* =========================================================
    BLOG CATEGORY → PRODUCT CATEGORY
 ========================================================= */
 
@@ -57,34 +101,39 @@ const blogCategoryToSlug = {
 };
 
 /* =========================================================
-   DIFFERENTIATORS
+   DIFFERENTIATORS — "Why Shahain?"
 ========================================================= */
 
 const differentiators = [
   {
     icon: Award,
-    number: "25+",
-    title: "Years of Experience",
+    title: "Since 1999",
     description:
-      "Years of experience in outdoor living solutions, delivering dependable products for residential and commercial spaces.",
+      "Over two decades of experience in outdoor living solutions.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "All-Weather Solutions",
+    description:
+      "Products created specifically for outdoor environments.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Quality First",
+    description:
+      "A commitment to dependable quality, functionality and lasting performance.",
   },
   {
     icon: Handshake,
-    title: "Customer-Centric Approach",
+    title: "Made for Your Space",
     description:
-      "We understand your space, requirements and style to create outdoor solutions that work beautifully for you.",
+      "Solutions tailored to residential and commercial requirements.",
   },
   {
     icon: BadgeIndianRupee,
     title: "Competitive Pricing",
     description:
-      "Premium outdoor furniture, awnings and shade solutions at competitive prices without compromising on quality.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Commitment to Quality",
-    description:
-      "Carefully selected materials, strong construction and attention to detail for long-lasting outdoor performance.",
+      "Quality outdoor solutions designed to deliver lasting value.",
   },
 ];
 
@@ -154,7 +203,7 @@ export default function Home() {
     <>
       <Seo
         title="Premium Outdoor Furniture, Awnings & Umbrellas in Pune"
-        description="Shahain Outdoor Living crafts premium outdoor furniture, retractable awnings, umbrellas, shade sails and tensile structures for homes, hotels and businesses. Based in Pune since 1999."
+        description="Shahain Furniture crafts premium outdoor furniture, retractable awnings, umbrellas, gazebos and tensile structures for homes, hotels and businesses. Based in Pune since 1999."
         path="/"
       />
 
@@ -202,35 +251,42 @@ export default function Home() {
         >
           <Reveal direction="up" duration={0.8}>
             <span className="font-body text-[13px] font-medium uppercase tracking-[0.28em] text-champagne sm:text-xs sm:tracking-[0.32em]">
-              Pune &middot; Since {siteConfig.founded}
+              Welcome to Shahain Furniture
             </span>
           </Reveal>
 
           <Reveal direction="up" delay={0.1} duration={0.9}>
             <h1 className="max-w-4xl text-balance font-heading text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[1.04] text-ivory">
-              Outdoor Living, Designed to Endure.
+              Premium Outdoor Living Since {siteConfig.founded}.
             </h1>
           </Reveal>
 
-          <Reveal direction="up" delay={0.2} duration={0.9}>
-            <p className="max-w-lg text-balance font-body text-[18px] leading-[1.65] text-ivory/85 sm:text-base sm:text-ivory/75 lg:text-lg">
-              Premium furniture, awnings, umbrellas, shade sails and tensile
-              structures for gardens, hotels and commercial spaces — crafted
-              for every season.
-            </p>
-          </Reveal>
+         <Reveal direction="up" delay={0.2} duration={0.9}>
+  <p className="max-w-lg text-balance font-body text-[18px] leading-[1.65] text-ivory/85 sm:text-base sm:text-ivory/75 lg:text-lg">
+    Premium outdoor furniture and shade solutions — crafted with quality,
+    comfort and thoughtful design for homes, hospitality and commercial
+    spaces.
+  </p>
+</Reveal>
+
+<Reveal direction="up" delay={0.25} duration={0.9}>
+  <p className="max-w-lg text-balance font-body text-[15px] leading-[1.65] text-ivory/70 sm:text-sm">
+    Furniture, awnings, umbrellas, gazebos and tensile structures —
+    everything to enhance the way you experience the outdoors.
+  </p>
+</Reveal>
 
           <Reveal
             direction="up"
             delay={0.3}
             className="flex flex-col gap-3 sm:flex-row"
           >
-            <Button to="/contact" variant="champagne">
-              {ctaLabels.quote}
+            <Button to="/products" variant="champagne">
+              Explore Our Collection
             </Button>
 
-            <Button to="/products" variant="outlineLight">
-              Explore Products
+            <Button to="/contact" variant="outlineLight">
+              {ctaLabels.enquire}
             </Button>
           </Reveal>
         </motion.div>
@@ -286,39 +342,41 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          3. OUTDOOR SOLUTIONS
+          3. MADE FOR THE OUTDOORS. DESIGNED FOR YOU.
+          (RENAMED from "Outdoor Solutions" — 4 display tiles
+          per the new copy; data/products.js keeps its 5
+          separate pages, unchanged)
       ===================================================== */}
 
       <section className="border-t border-sand/50 bg-white/20 py-10 sm:py-16 lg:py-20">
         <div className="container-shahain">
           <SectionHeading
-            eyebrow="Outdoor Solutions"
-            title="Outdoor products built for every season."
-            description="Five categories of all-weather outdoor living solutions — from furniture to fabric structures."
+            eyebrow="Our Range"
+            title="Made for the Outdoors. Designed for You."
             align="center"
             className="mb-8 sm:mb-14 lg:mb-20"
           />
 
           <Stagger className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-12 lg:grid-cols-3 lg:gap-y-14">
-            {productCategories.map((category) => (
-              <StaggerItem key={category.slug}>
-                <Link to={`/products/${category.slug}`} className="group block">
+            {homeCategoryTiles.map((tile) => (
+              <StaggerItem key={tile.slug}>
+                <Link to={`/products/${tile.slug}`} className="group block">
                   <ImageFrame
-                    src={categoryImages[category.slug]}
-                    alt={category.title}
+                    src={tile.image}
+                    alt={tile.title}
                     ratio="aspect-[4/3]"
-                    label={category.title}
+                    label={tile.title}
                     className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
 
                   <div className="mt-4 border-t border-sand/60 pt-4 sm:mt-5 sm:pt-5">
                     <span className="font-body text-xs uppercase tracking-[0.18em] text-champagne sm:text-[11px] sm:tracking-[0.2em]">
-                      {category.title}
+                      {tile.title}
                     </span>
 
                     <div className="mt-2 flex items-center justify-between gap-3">
                       <h3 className="font-heading text-xl leading-snug text-navy transition-colors duration-300 group-hover:text-champagne sm:text-lg">
-                        {category.description}
+                        {tile.description}
                       </h3>
 
                       <ArrowUpRight
@@ -326,6 +384,10 @@ export default function Home() {
                         strokeWidth={1.5}
                       />
                     </div>
+
+                    <span className="mt-3 inline-block font-body text-[11px] font-semibold uppercase tracking-[0.16em] text-champagne">
+                      {tile.cta}
+                    </span>
                   </div>
                 </Link>
               </StaggerItem>
@@ -411,8 +473,6 @@ export default function Home() {
 
       {/* =====================================================
           5. OUR WORK
-          (RENAMED from "Featured Projects" — same section,
-          same data, just relabeled per request)
       ===================================================== */}
 
       <section className="border-t border-sand/50 bg-white/40 py-10 sm:py-16 lg:py-20">
@@ -543,15 +603,14 @@ export default function Home() {
 
         <div className="container-shahain relative z-10">
           <SectionHeading
-            eyebrow="Why Shahain"
-            title="What guides every piece we make."
-            description="Experience, thoughtful design and uncompromising quality come together in every outdoor solution."
+            eyebrow="Why Shahain?"
+            title="Experience You Can Trust. Quality You Can Feel."
             align="center"
             light
             className="mb-8 sm:mb-12 lg:mb-16"
           />
 
-          <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5">
             {differentiators.map((item, index) => {
               const Icon = item.icon;
 
@@ -588,20 +647,6 @@ export default function Home() {
                       </motion.div>
                     </div>
 
-                    {/* Number */}
-
-                    {item.number && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative mt-2 font-heading text-4xl font-medium text-ivory"
-                      >
-                        {item.number}
-                      </motion.div>
-                    )}
-
                     {/* Title */}
 
                     <h3 className="relative mt-4 font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-ivory transition-colors duration-300 group-hover:text-champagne sm:mt-6 sm:text-[12px] sm:tracking-[0.18em]">
@@ -620,6 +665,22 @@ export default function Home() {
               );
             })}
           </Stagger>
+
+          <Reveal
+            direction="up"
+            delay={0.1}
+            className="mx-auto mt-10 max-w-2xl text-center sm:mt-14"
+          >
+            <h3 className="font-heading text-2xl text-ivory sm:text-3xl">
+              From Homes to Hospitality
+            </h3>
+            <p className="mt-4 font-body text-base leading-relaxed text-ivory/70">
+              From a quiet balcony to a lively restaurant terrace, every
+              outdoor space has a different purpose. We provide outdoor
+              solutions for homes, villas, gardens, hotels, resorts,
+              restaurants, cafés, corporate spaces and commercial projects.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -761,6 +822,10 @@ export default function Home() {
 
       {/* =====================================================
           11. FINAL CTA
+          (Bare — using ContactCta's own default copy.
+          Send ContactCta.jsx next so its defaults can be
+          updated to the new "Let's Create Something Better
+          Outdoors" copy in one place.)
       ===================================================== */}
 
       <ContactCta />

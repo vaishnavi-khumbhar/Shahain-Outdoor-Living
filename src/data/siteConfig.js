@@ -2,13 +2,13 @@
 // Do not invent contact details, certifications, awards or statistics.
 
 export const siteConfig = {
-  name: "Shahain Outdoor Living",
+  name: "Shahain Furniture",
   legalName: "Shahain Enterprise",
-  tagline: "Premium Outdoor Living Solutions",
+  tagline: "Premium Outdoor Living Since 1999",
   founded: 1999,
   city: "Pune",
   description:
-    "Shahain Outdoor Living creates all-weather outdoor furniture, awnings, umbrellas, shade sails and tensile structures for residential, hospitality and commercial spaces.",
+    "Shahain Furniture creates premium outdoor furniture, awnings, umbrellas, gazebos and tensile structures for homes, hospitality and commercial spaces.",
   url: "https://www.shahain.com",
 
   contact: {

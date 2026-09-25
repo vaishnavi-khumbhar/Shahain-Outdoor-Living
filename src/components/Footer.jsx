@@ -47,7 +47,7 @@ export default function Footer() {
         >
           <img
             src={logo}
-            alt="Shahain Outdoor Living"
+            alt="Shahain Furniture"
             className="h-12 w-auto object-contain"
           />
 
@@ -72,7 +72,7 @@ export default function Footer() {
               href={siteConfig.social.facebook}
               target="_blank"
               rel="noreferrer"
-              aria-label="Shahain Outdoor Living on Facebook"
+              aria-label="Shahain Furniture on Facebook"
               className="
                 flex
                 h-9
@@ -97,7 +97,7 @@ export default function Footer() {
               href={siteConfig.social.instagram}
               target="_blank"
               rel="noreferrer"
-              aria-label="Shahain Outdoor Living on Instagram"
+              aria-label="Shahain Furniture on Instagram"
               className="
                 flex
                 h-9

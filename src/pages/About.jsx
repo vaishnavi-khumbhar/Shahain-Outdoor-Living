@@ -33,8 +33,8 @@ const gallery = [
   { src: media.umbrellaRoma, label: "Outdoor Umbrellas" },
 ];
 
-// Sectors served — company-wide, matches the existing "Who We Are"
-// copy (clubs, corporate offices, hotels, restaurants, private residences).
+// Sectors served — company-wide, matches the "Our Story" copy
+// (homes, hospitality and commercial spaces).
 const sectorsServed = ["Residential", "Commercial", "Hospitality", "Retail"];
 
 export default function About() {
@@ -42,7 +42,7 @@ export default function About() {
     <>
       <Seo
         title="About Us"
-        description="Shahain Outdoor Living is a Pune-based outdoor living company, established in 1999, providing all-weatherproof furniture, umbrellas, awnings and tensile structures."
+        description="Shahain Furniture is a Pune-based outdoor living company, established in 1999, providing premium outdoor furniture, awnings, umbrellas, gazebos and tensile structures."
         path="/about"
       />
 
@@ -70,25 +70,49 @@ export default function About() {
         </div>
       </section>
 
-      {/* Who We Are — real photography */}
+      {/* Our Story — real photography */}
       <section className="py-20 lg:py-20">
         <div className="container-shahain grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <ImageFrame
               src={media.aboutSection}
-              alt="Shahain Outdoor Living"
+              alt="Shahain Furniture"
               ratio="aspect-[4/5]"
               className="shadow-xl shadow-navy/10"
             />
           </div>
           <div className="flex flex-col justify-center lg:col-span-5 lg:col-start-8">
             <SectionHeading
-              eyebrow="Who We Are"
-              title="Fully-weatherproof outdoor products, made to last."
-              description="Shahain Outdoor Living provides all-weatherproof outdoor products that include outdoor furniture, umbrellas, retractable awnings and fixed tensile fabric structures. Our work spans gardens, terraces, poolsides and beaches, for clubs, corporate offices, hotels, restaurants and private residences."
+              eyebrow="Our Story"
+              title="Your Outdoor Space Deserves More."
+              description="A beautiful outdoor space isn't just about how it looks — it's about how comfortably you can live, relax and enjoy it."
             />
 
-            <Reveal direction="up" delay={0.2} className="mt-6 flex flex-wrap gap-3">
+            <Reveal direction="up" delay={0.1} className="mt-4 flex flex-col gap-4">
+              <p className="font-body text-sm leading-relaxed text-gray sm:text-[15px]">
+                That belief has shaped Shahain Enterprise since we began our
+                journey in Pune in 1999.
+              </p>
+              <p className="font-body text-sm leading-relaxed text-gray sm:text-[15px]">
+                Over the years, we've grown to offer premium outdoor
+                furniture, awnings, umbrellas, gazebos and tensile structures
+                for homes, hospitality and commercial spaces.
+              </p>
+              <p className="font-body text-sm leading-relaxed text-gray sm:text-[15px]">
+                Through changing trends and evolving spaces, one thing has
+                remained constant — our commitment to quality. Today, we
+                continue to create outdoor solutions that look beautiful,
+                feel comfortable and are made to last.
+              </p>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.16} className="mt-6 border-t border-sand/60 pt-6">
+              <p className="font-heading text-lg italic leading-snug text-navy">
+                Shahain Furniture — Premium Outdoor Living Since 1999.
+              </p>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.22} className="mt-6 flex flex-wrap gap-3">
               {sectorsServed.map((sector) => (
                 <span
                   key={sector}
@@ -186,8 +210,8 @@ export default function About() {
 
       <ContactCta
         eyebrow="Work With Us"
-        title="Bring premium outdoor living to your space."
-        description="Whether it's a private residence, a hotel or a corporate campus, our team is ready to help you plan the right solution."
+        title="Have an Outdoor Space in Mind?"
+        description="Let's make more of it."
       />
     </>
   );

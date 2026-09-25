@@ -43,9 +43,9 @@ export default function Navbar() {
         <Link
           to="/"
           className="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03]"
-          aria-label="Shahain Outdoor Living — Home"
+          aria-label="Shahain Furniture — Home"
         >
-          <img src={logo} alt="Shahain Outdoor Living" className="h-12 w-auto lg:h-14" />
+          <img src={logo} alt="Shahain Furniture" className="h-12 w-auto lg:h-14" />
 
           {/* Wordmark — mobile only */}
           <span

@@ -13,7 +13,7 @@ export default function Blog() {
     <>
       <Seo
         title="Style Blog"
-        description="Guides and ideas on outdoor furniture, awnings, umbrellas, shade sails and tensile structures from Shahain Outdoor Living."
+        description="Guides and ideas on outdoor furniture, awnings, umbrellas, shade sails and tensile structures from Shahain Furniture."
         path="/blog"
       />
 
