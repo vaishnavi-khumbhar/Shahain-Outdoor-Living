@@ -475,6 +475,10 @@ export default function Home() {
           5. OUR WORK
       ===================================================== */}
 
+           {/* =====================================================
+          5. OUR WORK — project name + client names only
+      ===================================================== */}
+
       <section className="border-t border-sand/50 bg-white/40 py-10 sm:py-16 lg:py-20">
         <div className="container-shahain">
           <SectionHeading
@@ -482,55 +486,37 @@ export default function Home() {
             title="Where our work lives."
             description="Outdoor furniture, awnings, umbrellas, shade sails and tensile structures delivered across hospitality, commercial and residential projects."
             align="center"
-            className="mb-8 sm:mb-14 lg:mb-20"
+            className="mb-8 sm:mb-14 lg:mb-16"
           />
 
-          <Stagger className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-14 lg:grid-cols-3 lg:gap-y-16">
-            {featuredProjects.map((project, index) => {
-              const projectCategory = getProductBySlug(project.category);
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <StaggerItem key={project.slug}>
+                <div className="h-full border border-sand/60 bg-ivory p-6 sm:p-7">
+                  <h3 className="font-heading text-xl leading-snug text-navy sm:text-[22px]">
+                    {project.title}
+                  </h3>
 
-              const projectImage =
-                projectImages[project.category] ||
-                projectCategory?.galleryImage ||
-                projectCategory?.heroImage;
-
-              return (
-                <StaggerItem
-                  key={project.slug}
-                  className={index === 1 ? "lg:translate-y-10" : ""}
-                >
-                  <Link
-                    to={`/products/${project.category}`}
-                    className="group block"
-                  >
-                    <ImageFrame
-                      src={projectImage}
-                      alt={project.title}
-                      ratio="aspect-[4/5]"
-                      label={project.title}
-                      className="transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-
-                    <div className="mt-4 border-t border-sand/60 pt-4 sm:mt-5 sm:pt-5">
-                      <span className="font-body text-xs uppercase tracking-[0.18em] text-champagne sm:text-[11px] sm:tracking-[0.2em]">
-                        {project.sector}
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-sand/50 pt-5">
+                    {project.clients.map((client) => (
+                      <span
+                        key={client}
+                        className="border border-sand/60 px-2.5 py-1.5 font-body text-[10px] uppercase leading-tight tracking-[0.08em] text-gray sm:px-3"
+                      >
+                        {client}
                       </span>
-
-                      <h3 className="mt-2 font-heading text-[22px] text-navy sm:text-xl">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
+                    ))}
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
           </Stagger>
 
           <Reveal
             direction="up"
-            className="mt-10 flex justify-center sm:mt-16"
+            className="mt-10 flex justify-center sm:mt-14"
           >
-            <Button to="/projects" variant="ghost">
+            <Button to="/clients" variant="ghost">
               View All Projects
             </Button>
           </Reveal>

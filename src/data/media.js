@@ -27,11 +27,11 @@ import furnitureBanner from "../assets/images/outdoor-furniture/banner.webp";
 // MAIN PRODUCT CATEGORY IMAGES
 // =========================================================
 
-import awningsImage from "../assets/images/awnings.jpg";
+import awningsImage from "../assets/images/awnings2.jpg";
 import outdoorFurnitureImage from "../assets/images/outdoor-furniture1.webp";
-import outdoorUmbrellasImage from "../assets/images/outdoor-umbrellas.jpg";
-import shadeSailsImage from "../assets/images/shade-sails.jpg";
-import tensileStructuresImage from "../assets/images/tensile-structures.jpg";
+import outdoorUmbrellasImage from "../assets/images/outdoor-umbrellas2.avif";
+import shadeSailsImage from "../assets/images/shade-sails2.jpg";
+import tensileStructuresImage from "../assets/images/tensile-structures2.jpg";
 
 // =========================================================
 // APPLICATIONS MAIN IMAGE
@@ -39,6 +39,13 @@ import tensileStructuresImage from "../assets/images/tensile-structures.jpg";
 
 import applicationsImage from "../assets/images/applications1.jpg";
 
+
+
+
+import awningsGalleryPhoto from "../assets/images/awnings/gallery.jpg";
+import umbrellaGalleryPhoto from "../assets/images/umbrellas/gallery.jpg";
+import shadeSailGalleryPhoto from "../assets/images/shade-sails/gallery.avif";
+import tensileGalleryPhoto from "../assets/images/tensile-structures/gallery.webp";
 // =========================================================
 // APPLICATION SPECIFIC IMAGES
 // =========================================================
@@ -171,6 +178,11 @@ export const media = {
   blogBalcony,
   blogImages,
 
+
+
+    umbrellaGalleryPhoto,
+      shadeSailGalleryPhoto,
+        tensileGalleryPhoto,
   // =======================================================
   // PRODUCT ALIASES
   // =======================================================
@@ -179,6 +191,7 @@ export const media = {
   awningsOverview: awningsImage,
   awningsGallery: awningsImage,
   awningsMenu: awningsImage,
+  awningsGalleryPhoto,
 
   umbrellaRoma: outdoorUmbrellasImage,
   umbrellaOverview: outdoorUmbrellasImage,

@@ -3,14 +3,15 @@ import SectionHeading from "../components/SectionHeading";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal";
 import ContactCta from "../components/ContactCta";
 import { clientSectors } from "../data/clients";
+import { projectShowcase } from "../data/projects";
 import { media } from "../data/media";
 
 export default function Clients() {
   return (
     <>
       <Seo
-        title="Our Clients"
-        description="Shahain Outdoor Living has worked with hotels, restaurants, corporate groups and developers including JW Marriott, Hilton, Ritz Carlton, Bajaj Auto and Forbes Marshal."
+        title="Our Projects & Clients"
+        description="Shahain Furniture has worked with hotels, restaurants, corporate groups and developers including JW Marriott, Hilton, Ritz Carlton, Bajaj Auto and Forbes Marshall."
         path="/clients"
       />
 
@@ -30,7 +31,7 @@ export default function Clients() {
 
         <div className="container-shahain relative">
           <Reveal direction="up">
-            <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">Our Clients</span>
+            <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">Our Projects & Clients</span>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h1 className="mt-5 max-w-2xl text-balance font-heading text-[clamp(2.2rem,5.5vw,4rem)] font-medium leading-[1.08] text-ivory">
@@ -56,6 +57,43 @@ export default function Clients() {
           </div>
         </section>
       )}
+
+      {/* =====================================================
+          OUR PROJECTS — project name + client names only
+          (data comes from data/projects.js)
+      ===================================================== */}
+      <section className="border-b border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
+        <div className="container-shahain">
+          <SectionHeading
+            eyebrow="Our Projects"
+            title="Where our work lives."
+            className="mb-8 sm:mb-10 lg:mb-12"
+          />
+
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {projectShowcase.map((project) => (
+              <StaggerItem key={project.slug}>
+                <div className="h-full border border-sand/60 bg-ivory p-6 sm:p-7">
+                  <h3 className="font-heading text-lg leading-snug text-navy sm:text-xl">
+                    {project.title}
+                  </h3>
+
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-sand/50 pt-5">
+                    {project.clients.map((client) => (
+                      <span
+                        key={client}
+                        className="border border-sand/60 px-2.5 py-1.5 font-body text-[10px] uppercase leading-tight tracking-[0.08em] text-gray sm:px-3"
+                      >
+                        {client}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
 
       {/* =====================================================
           CLIENT SECTORS

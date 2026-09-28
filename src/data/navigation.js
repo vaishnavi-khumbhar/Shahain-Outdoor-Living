@@ -11,7 +11,7 @@ export const mainNav = [
       { label: "Tensile Structures", path: "/products/tensile-structures" },
     ],
   },
-  { label: "Projects", path: "/projects" },
+  { label: "Projects", path: "/clients" },
   { label: "Journal", path: "/blog" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
@@ -29,7 +29,7 @@ export const footerNav = {
   ],
   company: [
     { label: "About Us", path: "/about" },
-    { label: "Projects", path: "/projects" },
+    { label: "Projects", path: "/clients" },
     { label: "Solutions", path: "/solutions" },
     { label: "Our Clients", path: "/clients" },
     { label: "Journal", path: "/blog" },

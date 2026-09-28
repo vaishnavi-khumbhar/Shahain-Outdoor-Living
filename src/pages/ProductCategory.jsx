@@ -46,18 +46,15 @@ export default function ProductCategory() {
 
   if (!category) return <Navigate to="/products" replace />;
 
-  // Fallbacks: data/products.js currently provides `title`, `description`
-  // and `intro`, not `name`, `shortName` or `tagline`. These fall back
-  // gracefully instead of rendering blank or crashing on .toLowerCase().
   const displayName = category.name || category.title;
   const shortName = category.shortName || category.title;
   const tagline = category.tagline || category.description;
-  const overviewImage = category.overviewImage || category.galleryImage || category.heroImage;
-
-  // Optional per-category CTA button label (e.g. "Explore Our Outdoor
-  // Furniture", "Discuss Your Requirement"). Falls back to the generic
-  // label if a category doesn't set its own.
   const enquireCta = category.ctaLabel || `Enquire About ${shortName}`;
+
+  // Overview image is shown ONLY when the category has its own
+  // `overviewImage` in data/products.js (no fallback to hero/gallery,
+  // so the same photo is never repeated in the Overview section).
+  const overviewImage = category.overviewImage;
 
   const relatedSolutions = getSolutionsByProduct(category.slug);
 
@@ -70,8 +67,9 @@ export default function ProductCategory() {
       />
 
       {/* 1. Hero */}
-      <section className="grid grid-cols-1 lg:min-h-[640px] lg:grid-cols-2">
-        <div className="flex flex-col justify-center bg-navy px-6 py-32 pt-40 sm:px-8 lg:px-16 lg:py-24 lg:pt-24">
+           {/* 1. Hero */}
+      <section className="grid grid-cols-1 bg-navy lg:min-h-[640px] lg:grid-cols-2 lg:pt-20">
+        <div className="flex flex-col justify-center px-6 py-32 pt-40 sm:px-8 lg:px-16 lg:py-20">
           <Reveal direction="up">
             <span className="font-body text-xs font-medium uppercase tracking-[0.28em] text-champagne">
               {shortName}
@@ -96,71 +94,68 @@ export default function ProductCategory() {
             </Link>
           </Reveal>
         </div>
+
         <ImageFrame
           src={category.heroImage}
           alt={displayName}
-          ratio="aspect-[4/5] lg:aspect-auto lg:h-full"
+          ratio="aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-full"
           label={category.heroLabel}
           border={false}
         />
       </section>
-
-      {/* =====================================================
-    2. PRODUCT OVERVIEW
-===================================================== */}
-
-<section className="py-14 sm:py-16 lg:py-20">
-  <div className="container-shahain grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
-
-    {/* TEXT */}
-    <div className="lg:col-span-6">
-      <SectionHeading
-        eyebrow="Overview"
-        title={tagline}
-        description={category.intro}
-      />
-
-      {category.materials ? (
-        <Reveal
-          direction="up"
-          delay={0.2}
-          className="mt-8 flex flex-wrap gap-3"
+      
+      {/* 2. PRODUCT OVERVIEW */}
+            {/* 2. PRODUCT OVERVIEW */}
+      <section className="py-14 sm:py-16 lg:py-20">
+        <div
+          className={
+            overviewImage
+              ? "container-shahain grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16"
+              : "container-shahain"
+          }
         >
-          {category.materials.map((material) => (
-            <span
-              key={material}
-              className="
-                border border-sand/70
-                px-5 py-2.5
-                font-body text-[12.5px]
-                uppercase tracking-[0.14em]
-                text-navy
-                transition-all duration-300
-                hover:border-champagne
-                hover:bg-champagne/10
-              "
-            >
-              {material}
-            </span>
-          ))}
-        </Reveal>
-      ) : null}
-    </div>
+          {/* TEXT — centered when there is no overview image */}
+          <div className={overviewImage ? "lg:col-span-6" : "mx-auto max-w-3xl"}>
+            <SectionHeading
+              eyebrow="Overview"
+              title={tagline}
+              description={category.intro}
+              align={overviewImage ? undefined : "center"}
+            />
 
-    {/* DIFFERENT OVERVIEW IMAGE */}
-    <div className="lg:col-span-5 lg:col-start-8">
-      <Reveal direction="right">
-        <ImageFrame
-          src={overviewImage}
-          alt={`${displayName} overview`}
-          ratio="aspect-[4/5]"
-          label={category.heroLabel}
-        />
-      </Reveal>
-    </div>
+            {category.materials ? (
+              <Reveal
+                direction="up"
+                delay={0.2}
+                className={`mt-8 flex flex-wrap gap-3 ${overviewImage ? "" : "justify-center"}`}
+              >
+                {category.materials.map((material) => (
+                  <span
+                    key={material}
+                    className="border border-sand/70 px-5 py-2.5 font-body text-[12.5px] uppercase tracking-[0.14em] text-navy transition-all duration-300 hover:border-champagne hover:bg-champagne/10"
+                  >
+                    {material}
+                  </span>
+                ))}
+              </Reveal>
+            ) : null}
+          </div>
 
-  </div>
-</section>
+          {/* OVERVIEW IMAGE — landscape on mobile/tablet, portrait on desktop */}
+          {overviewImage ? (
+            <div className="lg:col-span-5 lg:col-start-8">
+              <Reveal direction="right">
+                <ImageFrame
+                  src={overviewImage}
+                  alt={`${displayName} overview`}
+                  ratio="aspect-[4/3] lg:aspect-[4/5]"
+                  label={category.heroLabel}
+                />
+              </Reveal>
+            </div>
+          ) : null}
+        </div>
+      </section>
 
       {/* 3. Product Categories (the range) */}
       <section className="border-t border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
@@ -174,8 +169,7 @@ export default function ProductCategory() {
                   {group.description ? (
                     <p className="mt-3 font-body text-sm leading-relaxed text-gray">{group.description}</p>
                   ) : null}
-
-                                   {group.items?.length > 0 && (
+                  {group.items?.length > 0 && (
                     <ul className="mt-5 space-y-3 border-t border-sand/50 pt-5">
                       {group.items.map((item) => (
                         <li key={item} className="flex items-start gap-3 font-body text-sm leading-relaxed text-gray">
@@ -185,7 +179,6 @@ export default function ProductCategory() {
                       ))}
                     </ul>
                   )}
-
                   {group.note ? (
                     <p className="mt-5 border-t border-sand/50 pt-4 font-body text-xs italic leading-relaxed text-gray/80">
                       {group.note}
@@ -222,34 +215,31 @@ export default function ProductCategory() {
         </section>
       ) : null}
 
-     {/* =====================================================
-    5. GALLERY — SINGLE IMAGE
-===================================================== */}
+      {/* 5. GALLERY — shown only if the category has a galleryImage */}
+      {category.galleryImage ? (
+        <section className="border-t border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
+          <div className="container-shahain">
+            <SectionHeading
+              eyebrow="Gallery"
+              title={`${displayName} in place`}
+              description={`Explore how our ${shortName.toLowerCase()} solutions look in real outdoor spaces.`}
+              className="mb-8 sm:mb-10 lg:mb-16"
+            />
 
-<section className="border-t border-sand/50 bg-white/40 py-14 sm:py-16 lg:py-20">
-  <div className="container-shahain">
-
-    <SectionHeading
-      eyebrow="Gallery"
-      title={`${displayName} in place`}
-      description={`Explore how our ${shortName.toLowerCase()} solutions look in real outdoor spaces.`}
-      className="mb-8 sm:mb-10 lg:mb-16"
-    />
-
-    <Reveal direction="up">
-      <div className="mx-auto max-w-6xl overflow-hidden">
-        <ImageFrame
-          src={category.galleryImage}
-          alt={`${displayName} outdoor installation`}
-          ratio="aspect-[16/8]"
-          label={category.heroLabel}
-          className="transition-transform duration-700 hover:scale-[1.01]"
-        />
-      </div>
-    </Reveal>
-
-  </div>
-</section>
+            <Reveal direction="up">
+              <div className="mx-auto max-w-6xl overflow-hidden">
+                <ImageFrame
+                  src={category.galleryImage}
+                  alt={`${displayName} outdoor installation`}
+                  ratio="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/8]"
+                  label={category.heroLabel}
+                  className="transition-transform duration-700 hover:scale-[1.01]"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
 
       {/* 6. Related Solutions */}
       {relatedSolutions.length > 0 ? (

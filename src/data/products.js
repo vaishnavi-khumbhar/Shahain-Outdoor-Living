@@ -26,7 +26,7 @@ export const products = [
     description: "Stylish and practical awnings providing shade and weather protection for commercial and residential spaces.",
     category: "Shade Solutions",
     intro: "Stylish and practical awnings providing shade and weather protection for commercial and residential spaces.",
-    heroImage: media.awningsHero, galleryImage: media.awningsGallery,
+    heroImage: media.awningsHero, galleryImage: media.awningsGalleryPhoto,
     groups: [
       { title: "Retractable Awnings", items: ["Manual", "Motorized"] },
       { title: "Fixed Awnings", items: ["Window Awnings", "Entrance Canopies"] },
@@ -37,7 +37,7 @@ export const products = [
     description: "Premium outdoor umbrellas for hotels, resorts, restaurants, cafes and poolside areas.",
     category: "Shade Solutions",
     intro: "Premium outdoor umbrellas for hotels, resorts, restaurants, cafes and poolside areas.",
-    heroImage: media.umbrellaOverview, galleryImage: media.umbrellaGallery,
+    heroImage: media.umbrellaOverview, galleryImage: media.umbrellaGalleryPhoto,
     groups: [
       { title: "Cantilever Umbrellas", items: ["Single-Post", "Side-Post"] },
       { title: "Center-Pole Umbrellas", items: ["Round", "Square", "Rectangular"] },
@@ -48,7 +48,7 @@ export const products = [
     description: "Contemporary shade sail solutions for clubs, bars, resorts, playgrounds and outdoor spaces.",
     category: "Shade Solutions",
     intro: "Contemporary shade sail solutions for clubs, bars, resorts, playgrounds and outdoor spaces.",
-    heroImage: media.shadeSailOverview, galleryImage: media.shadeSailGallery,
+    heroImage: media.shadeSailOverview, galleryImage: media.shadeSailGalleryPhoto,
     groups: [
       { title: "Fabric Types", items: ["HDPE Mesh", "PVC-Coated"] },
       { title: "Configurations", items: ["Single Sail", "Multi-Sail Layouts"] },
@@ -59,7 +59,7 @@ export const products = [
     description: "Large-scale tensile structures combining architectural design, shade and weather protection.",
     category: "Structures",
     intro: "Large-scale tensile structures combining architectural design, shade and weather protection.",
-    heroImage: media.tensileOverview, galleryImage: media.tensileGallery,
+    heroImage: media.tensileOverview, galleryImage: media.tensileGalleryPhoto,
     groups: [
       { title: "Structure Types", items: ["Conical", "Hyperbolic Paraboloid", "Cable-Net"] },
       { title: "Applications", items: ["Entrance Canopies", "Parking Shades", "Amphitheatre Roofs"] },
