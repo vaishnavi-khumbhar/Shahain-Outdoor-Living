@@ -250,10 +250,10 @@ export default function Home() {
           className="container-shahain relative z-10 flex flex-col gap-5 pb-16 pt-20 sm:gap-6 sm:pb-20 sm:pt-24 lg:gap-7 lg:pb-24 lg:pt-28"
         >
           <Reveal direction="up" duration={0.8}>
-            <span className="font-body text-[13px] font-medium uppercase tracking-[0.28em] text-champagne sm:text-xs sm:tracking-[0.32em]">
-              Welcome to Shahain Furniture
-            </span>
-          </Reveal>
+  <span className="font-body text-[15px] font-medium uppercase tracking-[0.24em] text-champagne sm:text-[16px] sm:tracking-[0.28em] md:text-[17px] md:tracking-[0.32em]">
+    Welcome to Shahain Furniture
+  </span>
+</Reveal>
 
           <Reveal direction="up" delay={0.1} duration={0.9}>
             <h1 className="max-w-4xl text-balance font-heading text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[1.04] text-ivory">
@@ -269,12 +269,7 @@ export default function Home() {
   </p>
 </Reveal>
 
-<Reveal direction="up" delay={0.25} duration={0.9}>
-  <p className="max-w-lg text-balance font-body text-[15px] leading-[1.65] text-ivory/70 sm:text-sm">
-    Furniture, awnings, umbrellas, gazebos and tensile structures —
-    everything to enhance the way you experience the outdoors.
-  </p>
-</Reveal>
+
 
           <Reveal
             direction="up"
