@@ -198,11 +198,9 @@ export default function About() {
             <Link to="/solutions" className="font-body text-[12.5px] font-medium uppercase tracking-[0.14em] text-champagne link-underline">
               See Our Solutions
             </Link>
-            <Link to="/projects" className="font-body text-[12.5px] font-medium uppercase tracking-[0.14em] text-champagne link-underline">
-              View Our Projects
-            </Link>
+           
             <Link to="/clients" className="font-body text-[12.5px] font-medium uppercase tracking-[0.14em] text-champagne link-underline">
-              See Our Clients
+              See Our Projects & Clients
             </Link>
           </Reveal>
         </div>
