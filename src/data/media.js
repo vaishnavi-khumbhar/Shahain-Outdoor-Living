@@ -10,7 +10,7 @@ import heroSlide3 from "../assets/images/hero/hero-1.jpg";
 // ABOUT
 // =========================================================
 
-import aboutSection from "../assets/images/about/about.jpg";
+import aboutSection from "../assets/images/about/about1.jpg";
 
 // =========================================================
 // OUTDOOR FURNITURE
