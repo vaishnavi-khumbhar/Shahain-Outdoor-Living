@@ -7,12 +7,11 @@ import { productCategories } from "../data/products";
 import { siteConfig } from "../data/siteConfig";
 
 // ── Tunable settings ─────────────────────────────────────
-const DELAY_MS = 2000; // how long after page load/navigation before it shows
+const DELAY_MS = 2000; // how long after page load before it shows
 const SESSION_KEY = "shahain_popup_submitted";
 
-// Set this to true if you'd rather it show ONLY ONCE per
-// browser tab (recommended for better UX) instead of on
-// every single page navigation.
+// Set this to true if you'd rather it show only once per
+// browser tab instead of every time someone lands on Home.
 const SHOW_ONCE_PER_SESSION = false;
 // ──────────────────────────────────────────────────────────
 
@@ -27,23 +26,28 @@ export default function ContactPopup() {
   const handleChange = (field) => (e) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
+  // Automatic popup — Home page only, after a short delay
   useEffect(() => {
-    // Never show on the Contact page itself
-    if (location.pathname === "/contact") return;
+    if (location.pathname !== "/") return;
 
-    // If it's already been submitted once this session, and
-    // the "once per session" flag is on, don't show it again
     if (SHOW_ONCE_PER_SESSION && sessionStorage.getItem(SESSION_KEY)) return;
 
     const timer = setTimeout(() => setOpen(true), DELAY_MS);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  // Manual open — fired by the floating Contact Us icon, works on any page
+  useEffect(() => {
+    const openFromEvent = () => setOpen(true);
+    window.addEventListener("open-contact-popup", openFromEvent);
+    return () => window.removeEventListener("open-contact-popup", openFromEvent);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const message =
-      `Hi Shahain Outdoor Living, I'd like to enquire about your products.\n\n` +
+      `Hi Shahain Furniture, I'd like to enquire about your products.\n\n` +
       `Name: ${form.name}\n` +
       `Phone: ${form.phone}\n` +
       `Interested in: ${form.interest || "Not specified"}\n` +
@@ -138,7 +142,7 @@ export default function ContactPopup() {
               />
 
               <Button type="submit" variant="primary" className="mt-1 w-full">
-                Send 
+                Send
               </Button>
             </form>
           </motion.div>

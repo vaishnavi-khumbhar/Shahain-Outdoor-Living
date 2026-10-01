@@ -305,37 +305,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =====================================================
-          2. BRAND INTRODUCTION
-      ===================================================== */}
-
-      <section className="py-10 sm:py-16 lg:py-20">
-        <div className="container-shahain grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow="About Shahain"
-              title="A Pune-based outdoor living company, since 1999."
-              description="Shahain Outdoor Living provides all-weatherproof outdoor products — furniture, umbrellas, retractable awnings and fixed tensile fabric structures — for gardens, terraces, poolsides and beaches, serving clubs, corporate offices, hotels, restaurants and private residences."
-            />
-
-            <Reveal direction="up" delay={0.24} className="mt-6 sm:mt-8">
-              <Button to="/about" variant="ghost">
-                More About Us
-              </Button>
-            </Reveal>
-          </div>
-
-          <div className="lg:col-span-7 lg:col-start-6">
-            <ImageFrame
-              src={media.aboutSection}
-              alt="Shahain Outdoor Living outdoor solutions"
-              ratio="aspect-[16/10]"
-              label="Shahain Outdoor Living"
-            />
-          </div>
-        </div>
-      </section>
-
+     
       {/* =====================================================
           3. MADE FOR THE OUTDOORS. DESIGNED FOR YOU.
           (RENAMED from "Outdoor Solutions" — 4 display tiles
@@ -709,6 +679,41 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* =====================================================
+          2. BRAND INTRODUCTION
+      ===================================================== */}
+
+      <section className="pt-4 pb-10 sm:pt-3 sm:pb-5 lg:pt-3 lg:pb-5">
+  <div className="container-shahain grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-8">
+    <div className="lg:col-span-5">
+      <SectionHeading
+        eyebrow="About Shahain"
+        title="A Pune-based outdoor living company, since 1999."
+        description="Shahain Outdoor Living provides all-weatherproof outdoor products — furniture, umbrellas, retractable awnings and fixed tensile fabric structures — for gardens, terraces, poolsides and beaches, serving clubs, corporate offices, hotels, restaurants and private residences."
+      />
+
+            <Reveal direction="up" delay={0.24} className="mt-6 sm:mt-8">
+              <Button to="/about" variant="ghost">
+                More About Us
+              </Button>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-7 lg:col-start-6">
+            <ImageFrame
+              src={media.aboutSection}
+              alt="Shahain Outdoor Living outdoor solutions"
+              ratio="aspect-[16/10]"
+              label="Shahain Outdoor Living"
+            />
+          </div>
+        </div>
+      </section>
+
+
+
+
       {/* =====================================================
           9. TESTIMONIAL / EXPERIENCE
       ===================================================== */}
@@ -800,6 +805,10 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+
+ 
+
 
       {/* =====================================================
           11. FINAL CTA
