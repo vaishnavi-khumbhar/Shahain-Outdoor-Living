@@ -20,13 +20,13 @@ export default function Clients() {
       ===================================================== */}
       <section className="relative overflow-hidden bg-navy pb-20 pt-40 lg:pb-28 lg:pt-52">
         <div className="absolute inset-0">
-          <img
+                   <img
             src={media.aboutSection}
             alt=""
-            className="h-full w-full object-cover opacity-45"
+            className="h-full w-full object-cover opacity-65"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/30" />
         </div>
 
         <div className="container-shahain relative">

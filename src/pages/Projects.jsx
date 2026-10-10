@@ -24,7 +24,7 @@ export default function Projects() {
         path="/projects"
       />
 
-      {/* =====================================================
+            {/* =====================================================
           HERO — real photography behind the headline
       ===================================================== */}
 
@@ -33,10 +33,11 @@ export default function Projects() {
           <img
             src={media.heroSlide2}
             alt=""
-            className="h-full w-full object-cover opacity-45"
+            className="h-full w-full object-cover opacity-90"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/30 to-navy/5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(184,155,98,0.22),transparent_50%)]" />
         </div>
 
         <div className="container-shahain relative">

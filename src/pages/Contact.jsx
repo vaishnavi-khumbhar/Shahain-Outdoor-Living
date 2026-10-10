@@ -85,7 +85,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
             loading="eager"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/30" />
         </div>
 
         {/* Hero Content */}

@@ -9,8 +9,7 @@ export default function ContactCta({
   description = "Planning a new outdoor space or upgrading an existing one? Whether you need outdoor furniture, awnings, umbrellas, gazebos or a customised tensile structure, tell us what you have in mind — we'll help you find a solution that works beautifully for your space.",
 }) {
   return (
-    <section className="bg-deep-navy py-16 sm:py-20 lg:py-32">
-      <div className="container-shahain flex flex-col items-center gap-6 sm:gap-8 text-center">
+    <section className="mb-3 bg-deep-navy py-16 sm:mb-4 sm:py-20 lg:mb-6 lg:py-32">      <div className="container-shahain flex flex-col items-center gap-6 sm:gap-8 text-center">
 
         {/* Eyebrow */}
         <Reveal direction="up">

@@ -24,6 +24,7 @@ export const siteConfig = {
   social: {
     facebook: "https://facebook.com/ShahainEnterprise",
     instagram: "https://instagram.com/shahain_outdoorliving",
+    linkedin: "https://linkedin.com/company/yourpage",
   },
 };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, Phone, X } from "lucide-react";
 import { mainNav } from "../data/navigation";
 import { siteConfig, ctaLabels } from "../data/siteConfig";
 import logo from "../assets/logo/shahain-logo.png";
@@ -13,7 +13,7 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,34 +31,25 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const solid = scrolled || open;
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? "bg-ivory/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(19,32,56,0.08)]" : "bg-transparent"
+      className={`sticky z-50 overflow-visible top-7 bg-ivory transition-all duration-300 ${
+        scrolled
+          ? "lg:top-0 shadow-[0_2px_14px_rgba(19,32,56,0.1)]"
+          : "lg:top-8 shadow-[0_1px_0_0_rgba(19,32,56,0.06)]"
       }`}
     >
-      <div className="container-shahain flex h-24 items-center justify-between lg:h-20">
+      <div className="container-shahain relative flex h-14 items-center justify-between overflow-visible lg:h-[60px]">
         <Link
           to="/"
-          className="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03]"
+          className="flex items-center border border-sand/60 bg-white px-2.5 py-1.5 shadow-md transition-transform duration-300 hover:scale-[1.02] lg:-mb-12"
           aria-label="Shahain Furniture — Home"
         >
-          <img src={logo} alt="Shahain Furniture" className="h-12 w-auto lg:h-14" />
-
-          {/* Wordmark — mobile only */}
-          <span
-            className={`font-heading text-[19px] font-semibold uppercase tracking-[0.06em] transition-colors duration-300 lg:hidden ${
-              solid ? "text-navy" : "text-ivory"
-            }`}
-          >
-            Shahain
-          </span>
+          <img src={logo} alt="Shahain Furniture" className="h-11 w-auto lg:h-14" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {mainNav.map((item) => (
             <div
               key={item.path}
@@ -70,19 +61,15 @@ export default function Navbar() {
                 to={item.path}
                 end={item.path === "/"}
                 className={({ isActive }) =>
-                  `link-underline flex items-center gap-1 pb-1 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] transition-colors duration-300 ${
-                    isActive
-                      ? "text-champagne"
-                      : solid
-                        ? "text-navy hover:text-champagne"
-                        : "text-ivory hover:text-champagne"
+                  `link-underline flex items-center gap-1 pb-1 font-body text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
+                    isActive ? "text-champagne" : "text-navy hover:text-champagne"
                   }`
                 }
               >
                 {item.label}
                 {item.children ? (
                   <ChevronDown
-                    className="h-3 w-3 transition-transform duration-300 group-hover:rotate-180"
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180"
                     strokeWidth={2.5}
                   />
                 ) : null}
@@ -103,7 +90,7 @@ export default function Navbar() {
                           <Link
                             key={child.path}
                             to={child.path}
-                            className="block border-b border-sand/40 px-5 py-3.5 font-body text-[12.5px] uppercase tracking-[0.1em] text-navy/80 last:border-b-0 hover:bg-navy hover:text-ivory transition-colors duration-200"
+                            className="block border-b border-sand/40 px-5 py-3.5 font-body text-[13px] uppercase tracking-[0.08em] text-navy/80 last:border-b-0 hover:bg-navy hover:text-ivory transition-colors duration-200"
                           >
                             {child.label}
                           </Link>
@@ -117,25 +104,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
-          <a
-            href={siteConfig.contact.phoneHref}
-            className={`flex items-center gap-2 font-body text-[12.5px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 hover:text-champagne ${
-              solid ? "text-navy" : "text-ivory"
-            }`}
-          >
-            <Phone className="h-3.5 w-3.5" strokeWidth={2} />
-            {siteConfig.contact.phone}
-          </a>
+        {/* CTA */}
+        <div className="hidden lg:flex">
           <Link
             to="/contact"
-            className={`border px-6 py-3 font-body text-[12px] font-medium uppercase tracking-[0.16em] transition-colors duration-300 ${
-              solid
-                ? "border-navy text-navy hover:bg-navy hover:text-ivory"
-                : "border-ivory/70 text-ivory hover:bg-ivory hover:text-navy"
-            }`}
+            className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-ivory transition-colors duration-300 hover:bg-champagne hover:text-navy"
           >
             {ctaLabels.enquire}
+            <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
           </Link>
         </div>
 
@@ -145,11 +121,7 @@ export default function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
-            solid
-              ? "border-navy/15 text-navy"
-              : "border-ivory/30 text-ivory"
-          }`}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors duration-300 lg:hidden"
         >
           {open ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
         </button>
@@ -163,7 +135,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-ivory lg:hidden"
+            className="overflow-hidden border-t border-sand/50 bg-ivory lg:hidden"
           >
             <nav className="container-shahain flex flex-col gap-1 pb-8 pt-2">
               {mainNav.map((item) => (
@@ -178,9 +150,10 @@ export default function Navbar() {
                 </a>
                 <Link
                   to="/contact"
-                  className="mt-2 inline-flex items-center justify-center bg-navy px-6 py-4 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] text-ivory"
+                  className="mt-2 inline-flex items-center justify-center gap-2 bg-navy px-6 py-4 font-body text-[12.5px] font-medium uppercase tracking-[0.16em] text-ivory"
                 >
                   {ctaLabels.enquire}
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
                 </Link>
               </div>
             </nav>

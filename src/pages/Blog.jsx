@@ -25,10 +25,10 @@ export default function Blog() {
           <img
             src={media.heroSlide3}
             alt=""
-            className="h-full w-full object-cover opacity-45"
+            className="h-full w-full object-cover opacity-65"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/30" />
         </div>
 
         <div className="container-shahain relative z-10">
