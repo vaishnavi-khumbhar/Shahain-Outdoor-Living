@@ -24,6 +24,7 @@ import SectionHeading from "../components/SectionHeading";
 import ImageFrame from "../components/ImageFrame";
 import Button from "../components/Button";
 import ContactCta from "../components/ContactCta";
+import OurApproach from "../components/OurApproach";
 import { productCategories, getProductBySlug } from "../data/products";
 import { clients } from "../data/clients";
 import { projectShowcase } from "../data/projects";
@@ -305,7 +306,12 @@ export default function Home() {
         </div>
       </section>
 
-     
+      {/* =====================================================
+          2.5 HOW WE WORK — OUR APPROACH
+      ===================================================== */}
+
+      <OurApproach />
+
       {/* =====================================================
           3. MADE FOR THE OUTDOORS. DESIGNED FOR YOU.
           (RENAMED from "Outdoor Solutions" — 4 display tiles
@@ -437,10 +443,6 @@ export default function Home() {
 ) : null}
 
       {/* =====================================================
-          5. OUR WORK
-      ===================================================== */}
-
-           {/* =====================================================
           5. OUR WORK — project name + client names only
       ===================================================== */}
 
@@ -711,9 +713,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
       {/* =====================================================
           9. TESTIMONIAL / EXPERIENCE
       ===================================================== */}
@@ -805,10 +804,6 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-
-
- 
-
 
       {/* =====================================================
           11. FINAL CTA
